@@ -1,65 +1,66 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import LandingSections from "../components/LandingSections";
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Sync dark mode class with page wrapper
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className={darkMode ? "dark" : ""}>
+      <div className="min-h-screen bg-stone-50 text-stone-600 dark:bg-stone-950 dark:text-stone-400 font-sans transition-colors duration-300">
+        
+        {/* Floating Theme Controller for Interactive Review */}
+        <div className="fixed top-6 right-6 z-50 flex items-center gap-2 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-850 px-4 py-2 rounded-full shadow-lg">
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-stone-500 dark:text-stone-400">
+            {darkMode ? "Dark Mode" : "Light Mode"}
+          </span>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="w-9 h-5 rounded-full bg-stone-200 dark:bg-emerald-600 relative transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-lime-500"
+            aria-label="Toggle theme"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <div
+              className={`w-4 h-4 rounded-full bg-white dark:bg-stone-950 absolute top-0.5 left-0.5 transition-transform duration-300 ${
+                darkMode ? "translate-x-4" : ""
+              }`}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </button>
         </div>
-      </main>
+
+        {/* Hero Segment Placeholder Note (Visual Boundary) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+          <div className="border-b border-dashed border-stone-300 dark:border-stone-800 pb-6 text-center">
+            <span className="text-[10px] font-bold text-stone-400 dark:text-stone-600 uppercase tracking-widest block">
+              [ End of Hero Section ]
+            </span>
+          </div>
+        </div>
+
+        {/* The 6 Core Landing Page Sections */}
+        <main className="pb-24">
+          <LandingSections />
+        </main>
+
+        {/* Footer Segment Placeholder Note (Visual Boundary) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="border-t border-dashed border-stone-300 dark:border-stone-800 pt-6 text-center">
+            <span className="text-[10px] font-bold text-stone-400 dark:text-stone-600 uppercase tracking-widest block">
+              [ Beginning of Footer Section ]
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

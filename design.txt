@@ -1,0 +1,31 @@
+[DESIGN SYSTEM CONTEXT - MANDATORY]
+You are generating a UI component for a premium, community-driven gardening blog and organic horticulturist marketplace website. 
+Strictly adhere to the following design system, pure Tailwind CSS classes, and light/dark mode requirements. Do not use external component libraries.
+
+1. COLOR PALETTE (Strict adherence required; always provide dark: variants):
+   - Primary (Growth/Nature): Tailwind Lime-to-Green spectrum 
+     * Light: text-emerald-700 / bg-lime-600 (Interactive/CTAs)
+     * Dark: text-emerald-400 / bg-lime-400 (Interactive/CTAs)
+   - Secondary (Earthy/Blossom Accent): Tailwind Terracotta/Orange spectrum
+     * Light: orange-600 (Terracotta accent for highlights, categories, badges)
+     * Dark: orange-400
+   - Backgrounds (Organic/Earthy tones): 
+     * Light Mode: bg-stone-50 (Main background) | bg-white (Cards/Containers)
+     * Dark Mode: bg-stone-950 (Main background) | bg-stone-900 (Cards/Containers)
+   - Typography & Borders:
+     * Light Mode: text-stone-900 (Headers) | text-stone-600 (Body) | border-stone-200
+     * Dark Mode: text-stone-50 (Headers) | text-stone-400 (Body) | border-stone-800
+
+2. SPACING & LAYOUT:
+   - Use strict mobile-first responsive design (sm:, md:, lg:).
+   - Component padding: px-4 py-3 for small items; p-6 for post/community cards; p-8 to p-12 for large hero or feature sections.
+   - Stacked spacing: space-y-4 or gap-4 for standard grids; space-y-6 for section layout blocks.
+
+3. AESTHETICS & SHAPES:
+   - Corners: Use `rounded-3xl` for main outer feature sections/hero images and `rounded-2xl` for standard cards/inputs to give an organic, soft, botanical vibe. Avoid sharp corners.
+   - Interactive: All buttons/links must have `transition-all duration-300 ease-out` with natural hover states (e.g., hover:scale-[1.01] or subtle opacity shifts).
+   - Focus states: Always include explicit focus rings for accessibility (`focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:focus:ring-offset-stone-900`).
+
+4. CODE OUTPUT RULES:
+   - Return clean, semantic, modern HTML/JSX using ONLY pure Tailwind CSS utility classes.
+   - Ensure complete light and dark mode compliance using the `dark:` modifier on every layout, background, text, and border class.
