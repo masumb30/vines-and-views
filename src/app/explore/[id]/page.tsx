@@ -46,7 +46,7 @@ const calculateReadingTime = (content: string) => {
 // ----------------------------------------------------------------------
 export default function BlogDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
-  
+
   // Unwrap params Promise using React.use()
   const { id: slugOrId } = use(params);
 
@@ -180,11 +180,11 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-600 dark:text-stone-400 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        
+
         {/* BACK NAVIGATION LINK */}
         <div className="mb-6">
           <Link
-            href="/explore"
+            href="/1"
             className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors group"
           >
             <svg
@@ -203,7 +203,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
         {/* HERO ARTICLE DISPLAY */}
         {/* ---------------------------------------------------------------------- */}
         <article className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl overflow-hidden shadow-sm">
-          
+
           {/* Main Thumbnail Image */}
           <div className="relative h-64 sm:h-96 w-full bg-stone-100 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800">
             {post.thumbnail ? (
@@ -218,7 +218,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
               </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent" />
-            
+
             {/* Top Overlay Badge (Tags) */}
             <div className="absolute bottom-6 left-6 sm:left-8 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
@@ -234,7 +234,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
 
           {/* Article Info & Details */}
           <div className="p-6 sm:p-10 space-y-8">
-            
+
             {/* Meta Row */}
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-stone-100 dark:border-stone-800">
               {/* Author Info */}
@@ -284,11 +284,10 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
             <div className="pt-6 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between">
               <button
                 onClick={handleLike}
-                className={`flex items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 ease-out font-bold hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 ${
-                  isLiked
+                className={`flex items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 ease-out font-bold hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 ${isLiked
                     ? "bg-orange-50 border-orange-200 text-orange-600 dark:bg-orange-950/20 dark:border-orange-900/50 dark:text-orange-400"
                     : "bg-white border-stone-200 text-stone-700 dark:bg-stone-900 dark:border-stone-800 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-850"
-                }`}
+                  }`}
                 aria-label={isLiked ? "Remove appreciation" : "Appreciate post"}
               >
                 <svg
@@ -317,7 +316,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
         {/* COMMENTS SECTION */}
         {/* ---------------------------------------------------------------------- */}
         <section className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-6 sm:p-10 shadow-sm mt-10 space-y-8">
-          
+
           <div>
             <h2 className="text-xl font-extrabold text-stone-900 dark:text-stone-50 tracking-tight">
               Botanical Discussion
