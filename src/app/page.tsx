@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import LandingSections from "../components/LandingSections";
+import VinesAndViewsHero from "@/components/Hero";
+import VinesAndViewsFooter from "@/components/Footer";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -41,11 +43,12 @@ export default function Home() {
 
         {/* Hero Segment Placeholder Note (Visual Boundary) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
-          <div className="border-b border-dashed border-stone-300 dark:border-stone-800 pb-6 text-center">
+          <VinesAndViewsHero />
+          {/* <div className="border-b border-dashed border-stone-300 dark:border-stone-800 pb-6 text-center">
             <span className="text-[10px] font-bold text-stone-400 dark:text-stone-600 uppercase tracking-widest block">
               [ End of Hero Section ]
             </span>
-          </div>
+          </div> */}
         </div>
 
         {/* The 6 Core Landing Page Sections */}
@@ -55,11 +58,12 @@ export default function Home() {
 
         {/* Footer Segment Placeholder Note (Visual Boundary) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="border-t border-dashed border-stone-300 dark:border-stone-800 pt-6 text-center">
+          <VinesAndViewsFooter/>
+          {/* <div className="border-t border-dashed border-stone-300 dark:border-stone-800 pt-6 text-center">
             <span className="text-[10px] font-bold text-stone-400 dark:text-stone-600 uppercase tracking-widest block">
               [ Beginning of Footer Section ]
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
