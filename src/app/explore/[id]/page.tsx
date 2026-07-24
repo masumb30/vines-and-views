@@ -78,14 +78,16 @@ export default function BlogDetailPage({
   // Unwrap Next.js dynamic params using React.use()
   const { id: postId } = use(params);
 
+  const {data, isPending} = authClient.useSession();
+
   // Component States
   const [post, setPost] = useState<PopulatedPost | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   // Dynamic Likes & Comments Local State
-  const [isLiked, setIsLiked] = useState<boolean>(false);
   const [likesCount, setLikesCount] = useState<number>(0);
+  const [liked, setLiked] = useState<boolean>(false);
   const [comments, setComments] = useState<PopulatedComment[]>([]);
 
   // New Comment Input State
@@ -113,9 +115,13 @@ export default function BlogDetailPage({
 
         const payload = await res.json();
         const fetchedPost: PopulatedPost = payload.data;
+        console.log(fetchedPost);
+        const data = await authClient.getSession();
+
 
         setPost(fetchedPost);
         setLikesCount(fetchedPost.likes?.length || 0);
+        setLiked(fetchedPost.likes?.some((user) => user._id === data?.data?.session?.userId) || false);
         setComments(fetchedPost.comments || []);
       } catch (err: any) {
         setError(err.message || "An unexpected error occurred");
@@ -130,11 +136,7 @@ export default function BlogDetailPage({
   // --------------------------------------------------------------------
   // HANDLERS
   // --------------------------------------------------------------------
-  const handleLikeToggle = () => {
-    // Local optimistic update
-    setIsLiked(!isLiked);
-    setLikesCount((prev) => (isLiked ? prev - 1 : prev + 1));
-  };
+
 
   const handleDeleteComment = async (commentId: string) => {
     const { data: sessionData } = await authClient.getSession();
@@ -184,6 +186,25 @@ export default function BlogDetailPage({
       setIsSubmitting(false);
     }
   };
+
+  const handleLikePost = async(likeType: 'like' | 'unlike') => {
+    const { data: sessionData } = await authClient.getSession();
+    if (!sessionData?.session?.token) {
+      alert("You must be logged in to like a post.");
+      return;
+    }
+    try {
+      await fetch(`http://localhost:5000/posts/like/${postId}/${likeType}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${sessionData?.session?.token}` },
+      });
+
+      setLiked(!liked);
+      setLikesCount((prev) => (liked ? prev - 1 : prev + 1));
+    } catch (err) {
+      console.error("Failed to like post:", err);
+    }
+  }
 
   // --------------------------------------------------------------------
   // UI STATES: LOADING & NOT FOUND
@@ -359,14 +380,15 @@ export default function BlogDetailPage({
             {/* Appreciation Bar */}
             <div className="pt-6 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between">
               <button
-                onClick={handleLikeToggle}
-                className={`flex items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 font-bold hover:scale-[1.02] ${isLiked
+              disabled={!data?.session?.token}
+                onClick={()=> handleLikePost(liked ? 'unlike' : 'like')}
+                className={`flex cursor-pointer items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 font-bold hover:scale-[1.02] ${liked
                     ? "bg-orange-50 border-orange-200 text-orange-600 dark:bg-orange-950/20 dark:border-orange-900/50 dark:text-orange-400"
                     : "bg-white border-stone-200 text-stone-700 dark:bg-stone-900 dark:border-stone-800 dark:text-stone-300 hover:bg-stone-50"
                   }`}
               >
                 <svg
-                  className={`w-5 h-5 ${isLiked
+                  className={`w-5 h-5 ${liked
                       ? "fill-orange-600 text-orange-600 dark:fill-orange-400"
                       : "currentColor"
                     }`}
@@ -396,6 +418,8 @@ export default function BlogDetailPage({
                 <span>{comments.length} Comments Logged</span>
               </div>
             </div>
+
+
           </div>
         </article>
 
@@ -411,6 +435,10 @@ export default function BlogDetailPage({
           </div>
 
           {/* Comment Submission Form */}
+
+          {
+            data?.session?.userId ?
+          
           <form onSubmit={handleCommentSubmit} className="space-y-4">
             <div>
               <label className="block text-xs font-bold text-stone-500 dark:text-stone-500 uppercase tracking-wider mb-2">
@@ -436,6 +464,11 @@ export default function BlogDetailPage({
               </button>
             </div>
           </form>
+          :
+          <div className="flex items-center justify-center py-12 text-red-200">
+            Sign in to take part in the discussion
+          </div>
+}
 
           {/* Render Populated Comments List */}
           <div className="border-t border-stone-100 dark:border-stone-800 pt-8 space-y-6">
@@ -482,6 +515,11 @@ export default function BlogDetailPage({
                           {formatDate(comment.createdAt)}
 
                           {/* render delete button */}
+
+                          {
+                            !isPending && data?.session?.userId === comment.userId?._id &&
+                          
+                          
                           <div onClick={()=> handleDeleteComment(comment._id)} className="cursor-pointer flex items-center justify-center w-7 h-7 rounded-full bg-red-50 hover:bg-red-700/10 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60">
                             <svg
                               className="w-4 h-4 text-red-600 dark:text-red-400"
@@ -497,6 +535,8 @@ export default function BlogDetailPage({
                               />
                             </svg>
                           </div>
+}
+
                         </span>
                       </div>
                       <p className="text-stone-700 dark:text-stone-300 font-normal">
