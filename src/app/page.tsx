@@ -56,15 +56,7 @@ export default function Home() {
           <LandingSections />
         </main>
 
-        {/* Footer Segment Placeholder Note (Visual Boundary) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <VinesAndViewsFooter/>
-          {/* <div className="border-t border-dashed border-stone-300 dark:border-stone-800 pt-6 text-center">
-            <span className="text-[10px] font-bold text-stone-400 dark:text-stone-600 uppercase tracking-widest block">
-              [ Beginning of Footer Section ]
-            </span>
-          </div> */}
-        </div>
+        
       </div>
     </div>
   );
