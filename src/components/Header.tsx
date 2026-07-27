@@ -87,13 +87,13 @@ const Header: React.FC = ({ }) => {
 
     // Reusable focus and transition classes
     const focusClasses =
-        'focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900';
+        'focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-stone-900';
     const transitionClasses = 'transition-all duration-200';
 
     return (
         <>
             {/* Main Header / Navbar */}
-            <header className="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-sm">
+            <header className="sticky top-0 z-40 w-full border-b border-stone-200 dark:border-stone-800 bg-stone-50/95 dark:bg-stone-950/95 backdrop-blur-sm">
                 <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center justify-between">
 
@@ -101,7 +101,7 @@ const Header: React.FC = ({ }) => {
                         <div className="flex-shrink-0">
                             <a
                                 href="/"
-                                className="flex items-center gap-2 font-bold text-xl tracking-tight text-slate-900 dark:text-slate-50 transition-all duration-200 hover:scale-[1.02]"
+                                className="flex items-center gap-2 font-bold text-xl tracking-tight text-stone-900 dark:text-stone-50 transition-all duration-200 hover:scale-[1.02]"
                                 onClick={handleNavigation}
                             >
                                 {/* Logo Icon: a subtle culinary mark */}
@@ -130,9 +130,9 @@ const Header: React.FC = ({ }) => {
                                     href={link.href}
                                     className={classNames(
                                         'px-3 py-2 rounded-xl text-sm font-medium',
-                                        'text-slate-600 dark:text-slate-400',
+                                        'text-stone-600 dark:text-stone-400',
                                         'hover:text-emerald-600 dark:hover:text-emerald-500',
-                                        'hover:bg-white dark:hover:bg-slate-800',
+                                        'hover:bg-white dark:hover:bg-stone-800',
                                         transitionClasses,
                                         focusClasses
                                     )}
@@ -151,11 +151,11 @@ const Header: React.FC = ({ }) => {
                                     user ? (
                                         // ----- LOGGED IN STATE: Avatar + Name -----
                                         <div onClick={handleDropDown} className="flex items-center gap-3  relative">
-                                            <div className={`absolute top-full left-0 ${dropDown ? 'block ' : 'hidden'} w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg mt-2 z-50`}>
-                                                <a href="/dashboard" className="block w-full px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg w-full text-left cursor-pointer">
+                                            <div className={`absolute top-full left-0 ${dropDown ? 'block ' : 'hidden'} w-full bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg mt-2 z-50`}>
+                                                <a href="/dashboard" className="block w-full px-4 py-2 text-sm text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg w-full text-left cursor-pointer">
                                                     Dashboard
                                                 </a>
-                                                <button onClick={handleLogOut} className="px-4 py-2 text-sm text-red-700 dark:text-red-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg w-full text-left cursor-pointer">
+                                                <button onClick={handleLogOut} className="px-4 py-2 text-sm text-red-700 dark:text-red-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg w-full text-left cursor-pointer">
                                                     Log out
                                                 </button>
                                             </div>
@@ -163,8 +163,8 @@ const Header: React.FC = ({ }) => {
                                             <button
                                                 className={classNames(
                                                     'flex items-center gap-2 rounded-xl p-1.5',
-                                                    'text-slate-700 dark:text-slate-300',
-                                                    'hover:bg-white dark:hover:bg-slate-800',
+                                                    'text-stone-700 dark:text-stone-300',
+                                                    'hover:bg-white dark:hover:bg-stone-800',
                                                     transitionClasses,
                                                     focusClasses
                                                 )}
@@ -192,7 +192,7 @@ const Header: React.FC = ({ }) => {
                                                 </span>
                                                 {/* Chevron Down Indicator */}
                                                 <svg
-                                                    className="hidden xl:block h-4 w-4 text-slate-400"
+                                                    className="hidden xl:block h-4 w-4 text-stone-400"
                                                     fill="none"
                                                     stroke="currentColor"
                                                     viewBox="0 0 24 24"
@@ -213,9 +213,9 @@ const Header: React.FC = ({ }) => {
                                                 href="/login"
                                                 className={classNames(
                                                     'px-4 py-2 rounded-xl text-sm font-medium',
-                                                    'text-slate-700 dark:text-slate-300',
+                                                    'text-stone-700 dark:text-stone-300',
                                                     'hover:text-emerald-600 dark:hover:text-emerald-500',
-                                                    'hover:bg-white dark:hover:bg-slate-800',
+                                                    'hover:bg-white dark:hover:bg-stone-800',
                                                     transitionClasses,
                                                     focusClasses
                                                 )}
@@ -227,7 +227,7 @@ const Header: React.FC = ({ }) => {
                                                 className={classNames(
                                                     'px-4 py-2 rounded-xl text-sm font-semibold',
                                                     'bg-emerald-600 text-white',
-                                                    'dark:bg-emerald-500 dark:text-slate-900',
+                                                    'dark:bg-emerald-500 dark:text-stone-900',
                                                     'hover:brightness-110 hover:scale-[1.02]',
                                                     'shadow-sm',
                                                     transitionClasses,
@@ -247,8 +247,8 @@ const Header: React.FC = ({ }) => {
                                 type="button"
                                 className={classNames(
                                     'inline-flex items-center justify-center rounded-xl p-2',
-                                    'text-slate-600 dark:text-slate-400',
-                                    'hover:bg-white dark:hover:bg-slate-800',
+                                    'text-stone-600 dark:text-stone-400',
+                                    'hover:bg-white dark:hover:bg-stone-800',
                                     transitionClasses,
                                     focusClasses
                                 )}
@@ -289,34 +289,34 @@ const Header: React.FC = ({ }) => {
                 aria-hidden="true"
             >
                 {/* Semi-transparent background */}
-                <div className="absolute inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-stone-900/40 dark:bg-black/60 backdrop-blur-sm" />
             </div>
 
             {/* Slide-in Sidebar Panel */}
             <div
                 className={classNames(
                     'fixed top-0 right-0 z-50 h-full w-full max-w-xs lg:hidden',
-                    'bg-white dark:bg-slate-900',
-                    'shadow-xl border-l border-slate-200 dark:border-slate-800',
+                    'bg-white dark:bg-stone-900',
+                    'shadow-xl border-l border-stone-200 dark:border-stone-800',
                     'flex flex-col',
                     'transform transition-transform duration-300 ease-in-out',
-                    sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+                    sidebarOpen ? 'transtone-x-0' : 'transtone-x-full'
                 )}
                 role="dialog"
                 aria-modal="true"
                 aria-label="Mobile navigation"
             >
                 {/* Sidebar Header with Close Button */}
-                <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
-                    <span className="text-lg font-semibold text-slate-900 dark:text-slate-50">
+                <div className="flex items-center justify-between p-4 border-b border-stone-200 dark:border-stone-800">
+                    <span className="text-lg font-semibold text-stone-900 dark:text-stone-50">
                         Menu
                     </span>
                     <button
                         onClick={() => setSidebarOpen(false)}
                         className={classNames(
                             'rounded-xl p-2',
-                            'text-slate-600 dark:text-slate-400',
-                            'hover:bg-slate-100 dark:hover:bg-slate-800',
+                            'text-stone-600 dark:text-stone-400',
+                            'hover:bg-stone-100 dark:hover:bg-stone-800',
                             transitionClasses,
                             focusClasses
                         )}
@@ -342,7 +342,7 @@ const Header: React.FC = ({ }) => {
                 <div className="flex-1 overflow-y-auto p-4 space-y-6">
                     {/* Conditional Profile Section */}
                     {user ? (
-                        <div onClick={() => { router.push('/dashboard'); setSidebarOpen(false) }} className=" cursor-pointer flex items-center gap-4 rounded-2xl bg-slate-50 dark:bg-slate-800 p-4 border border-slate-200 dark:border-slate-700">
+                        <div onClick={() => { router.push('/dashboard'); setSidebarOpen(false) }} className=" cursor-pointer flex items-center gap-4 rounded-2xl bg-stone-50 dark:bg-stone-800 p-4 border border-stone-200 dark:border-stone-700">
                             <div className="h-12 w-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-lg font-semibold shadow-sm flex-shrink-0">
                                 {user?.user?.image ? (
                                     <img
@@ -360,10 +360,10 @@ const Header: React.FC = ({ }) => {
                                 )}
                             </div>
                             <div className="min-w-0 flex-1">
-                                <p className="text-sm font-semibold text-slate-900 dark:text-slate-50 truncate">
+                                <p className="text-sm font-semibold text-stone-900 dark:text-stone-50 truncate">
                                     {user?.user?.name}
                                 </p>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                                <p className="text-xs text-stone-500 dark:text-stone-400 truncate">
                                     {user?.user?.email}
                                 </p>
                             </div>
@@ -375,9 +375,9 @@ const Header: React.FC = ({ }) => {
                                 href="/login"
                                 className={classNames(
                                     'w-full rounded-xl px-4 py-3 text-center text-sm font-medium',
-                                    'border border-slate-200 dark:border-slate-700',
-                                    'text-slate-700 dark:text-slate-300',
-                                    'hover:bg-slate-50 dark:hover:bg-slate-800',
+                                    'border border-stone-200 dark:border-stone-700',
+                                    'text-stone-700 dark:text-stone-300',
+                                    'hover:bg-stone-50 dark:hover:bg-stone-800',
                                     transitionClasses,
                                     focusClasses
                                 )}
@@ -389,7 +389,7 @@ const Header: React.FC = ({ }) => {
                                 href="/register"
                                 className={classNames(
                                     'w-full rounded-xl px-4 py-3 text-center text-sm font-semibold',
-                                    'bg-emerald-600 text-white dark:bg-emerald-500 dark:text-slate-900',
+                                    'bg-emerald-600 text-white dark:bg-emerald-500 dark:text-stone-900',
                                     'hover:brightness-110',
                                     'shadow-sm',
                                     transitionClasses,
@@ -403,7 +403,7 @@ const Header: React.FC = ({ }) => {
                     )}
 
                     {/* Divider */}
-                    <div className="border-t border-slate-200 dark:border-slate-800" />
+                    <div className="border-t border-stone-200 dark:border-stone-800" />
 
                     {/* Mobile Navigation Links */}
                     <nav className="space-y-1">
@@ -413,8 +413,8 @@ const Header: React.FC = ({ }) => {
                                 href={link.href}
                                 className={classNames(
                                     'block rounded-xl px-4 py-3 text-base font-medium',
-                                    'text-slate-700 dark:text-slate-300',
-                                    'hover:bg-slate-50 dark:hover:bg-slate-800',
+                                    'text-stone-700 dark:text-stone-300',
+                                    'hover:bg-stone-50 dark:hover:bg-stone-800',
                                     'hover:text-emerald-600 dark:hover:text-emerald-500',
                                     transitionClasses,
                                     focusClasses
@@ -431,7 +431,7 @@ const Header: React.FC = ({ }) => {
                                     className={classNames(
                                         'block w-full text-left cursor-pointer rounded-xl px-4 py-3 text-base font-medium',
                                         'text-red-700 dark:text-red-300',
-                                        'hover:bg-slate-50 dark:hover:bg-slate-800',
+                                        'hover:bg-stone-50 dark:hover:bg-stone-800',
                                         'hover:text-red-600 dark:hover:text-red-500',
                                         transitionClasses,
                                         focusClasses
@@ -446,8 +446,8 @@ const Header: React.FC = ({ }) => {
                 </div>
 
                 {/* Sidebar Footer (Optional subtle branding) */}
-                <div className="p-4 border-t border-slate-200 dark:border-slate-800">
-                    <p className="text-xs text-center text-slate-400 dark:text-slate-500">
+                <div className="p-4 border-t border-stone-200 dark:border-stone-800">
+                    <p className="text-xs text-center text-stone-400 dark:text-stone-500">
                         © 2026 Vines & Views Community
                     </p>
                 </div>

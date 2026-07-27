@@ -1,9 +1,7 @@
 import { auth } from '@/lib/auth';
+import { authClient } from '@/lib/auth-client';
 import { headers } from 'next/headers';
 import React from 'react';
-import { DeletePostButton } from './DeletePostButton';
-
-
 
 // TypeScript interface matching the backend response
 interface IDashboardData {
@@ -43,18 +41,20 @@ interface IDashboardData {
 // Server Component / Data Fetcher helper
 async function getDashboardData(): Promise<IDashboardData | null> {
   try {
+    // Replace with your API endpoint and session handling
     const session = await auth.api.getSession({
-      headers: await headers()
+        headers: await headers()
     });
-    if (!session?.session?.token) throw new Error('user not signed in');
-    
+    if(!session?.session?.token) throw new Error('user not signed in')
     const res = await fetch(`http://localhost:5000/dashboard`, {
       headers: {
-        Authorization: `Bearer ${session.session.token}`,
+        
+        Authorization: `Bearer ${session?.session?.token}`,
       },
       cache: 'no-store', // Ensures fresh dashboard data on each load
     });
 
+    // console.log('res', await res.json())
     if (!res.ok) return null;
     return await res.json();
   } catch (error) {
@@ -87,6 +87,7 @@ export default async function DashboardPage() {
 
         {/* 1. Compact Hero Banner */}
         <section className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 dark:border-stone-800 dark:bg-stone-900">
+          {/* Subtle Decorative Gradient Backdrop */}
           <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl dark:bg-emerald-400/10" />
           <div className="pointer-events-none absolute -bottom-12 right-24 h-40 w-40 rounded-full bg-orange-500/10 blur-2xl dark:bg-orange-400/10" />
 
@@ -189,20 +190,15 @@ export default async function DashboardPage() {
                       />
                     )}
                     <div className="flex-1 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex flex-wrap items-center gap-2">
-                          {post.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-600 dark:bg-orange-950/80 dark:text-orange-400"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Client Component Button for Deleting */}
-                        <DeletePostButton postId={post._id} postTitle={post.title} />
+                      <div className="flex flex-wrap items-center gap-2">
+                        {post.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-600 dark:bg-orange-950/80 dark:text-orange-400"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
                       </div>
 
                       <h3 className="text-base font-bold text-stone-900 line-clamp-1 dark:text-stone-50">
