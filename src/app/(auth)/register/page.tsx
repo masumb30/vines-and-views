@@ -7,7 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { authClient } from '@/lib/auth-client';
 
 // 1. Premium Seed Profiles containing realistic data and genuine nature-focused avatars
-const MOCK_SEED_USERS = [
+const MOCK_SEED_USERS =[
     {
         name: 'Sage Meadowcroft',
         email: 'sage.gardens@example.com',

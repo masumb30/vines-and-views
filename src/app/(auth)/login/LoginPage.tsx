@@ -56,7 +56,6 @@ export default function LoginPage() {
             email: chosenUser.email,
             password: chosenUser.password
         });
-        toast.info(`Nurtured fields with: ${chosenUser.label}`);
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
