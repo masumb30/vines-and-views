@@ -1,10 +1,13 @@
 'use client';
 import React from 'react';
+import { authClient } from '@/lib/auth-client';
 
 export const VinesAndViewsFooter: React.FC = () => {
+
+
   return (
     <footer className="relative overflow-hidden bg-stone-50 text-stone-900 transition-colors duration-300 dark:bg-stone-950 dark:text-stone-50">
-      {/* Decorative Organic Background Accents */}
+      
       <div className="pointer-events-none absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-lime-500/10 blur-3xl dark:bg-lime-400/10" />
       <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl dark:bg-orange-400/10" />
 

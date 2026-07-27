@@ -1,6 +1,8 @@
 'use client';
 
+import PostModal from '@/components/PostModal';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect, useCallback } from 'react';
 
 // --- DATA TYPES & INTERFACES ---
@@ -28,6 +30,7 @@ export interface IPost extends IMongoRecord {
     tags: string[];
     likes: string[] | IUser[];
     comments: string[] | IComment[];
+    summary: string;
 }
 
 export interface IComment extends IMongoRecord {
@@ -44,6 +47,9 @@ interface ApiResponse {
 
 // --- MAIN PAGE COMPONENT ---
 export default function PostsPage() {
+    const router = useRouter();
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [selectedPost, setSelectedPost] = useState<IPost | null>(null);
     // Query States
     const [searchInput, setSearchInput] = useState<string>('');
     const [activeSearch, setActiveSearch] = useState<string>('');
@@ -55,6 +61,11 @@ export default function PostsPage() {
     const [totalPages, setTotalPages] = useState<number>(1);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const handleAiOverviewClick =(e, post:IPost)=> {
+        e.preventDefault();
+        setSelectedPost(post);
+        setIsOpen(true);
+    }
 
     // Fetch posts from backend API
     const fetchPosts = useCallback(async () => {
@@ -129,6 +140,18 @@ export default function PostsPage() {
                         </p>
                     </div>
                 </header>
+
+                {/* the ai summary modal */}
+                <PostModal
+                    isOpen={isOpen}
+                    onClose={() => {setIsOpen(false); setSelectedPost(null)}}
+                    onViewPost={() => {
+                        setIsOpen(false);
+                        // Navigate to post or execute view action
+                        router.push(`/explore/${selectedPost?._id}`);
+                    }}
+                    title={selectedPost?.summary}
+                />
 
                 {/* --- FILTER & SEARCH SECTION --- */}
                 <section className="rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 shadow-sm">
@@ -209,67 +232,69 @@ export default function PostsPage() {
                             const author = getAuthor(post);
                             return (
                                 <Link href={`/explore/${post._id}`} key={post._id}>
-                                <article
-                                    key={post._id}
-                                    className="group rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.01] flex flex-col justify-between"
-                                >
-                                    <div className="space-y-4">
-                                        {/* Thumbnail */}
-                                        <div className="relative h-48 w-full overflow-hidden rounded-xl bg-stone-100 dark:bg-stone-800">
-                                            <img
-                                                src={post.thumbnail || 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=600'}
-                                                alt={post.title}
-                                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                                loading="lazy"
-                                            />
-                                        </div>
-
-                                        {/* Tags */}
-                                        {post.tags && post.tags.length > 0 && (
-                                            <div className="flex flex-wrap gap-1.5">
-                                                {post.tags.map((tag, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 border border-orange-200/50 dark:border-orange-800/50"
-                                                    >
-                                                        #{tag}
-                                                    </span>
-                                                ))}
+                                    
+                                    <article
+                                        key={post._id}
+                                        className="group rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.01] flex flex-col justify-between"
+                                    >
+                                        <div onClick={(e)=> handleAiOverviewClick(e, post)} className={`opacity-0 group-hover:opacity-100 flex justify-end `}>sum</div>
+                                        <div className="space-y-4">
+                                            {/* Thumbnail */}
+                                            <div className="relative h-48 w-full overflow-hidden rounded-xl bg-stone-100 dark:bg-stone-800">
+                                                <img
+                                                    src={post.thumbnail || 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=600'}
+                                                    alt={post.title}
+                                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                    loading="lazy"
+                                                />
                                             </div>
-                                        )}
 
-                                        {/* Title & Excerpt */}
-                                        <div className="space-y-2">
-                                            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors line-clamp-2">
-                                                {post.title}
-                                            </h2>
-                                            <p className="text-stone-600 dark:text-stone-400 text-sm line-clamp-3 leading-relaxed">
-                                                {post.content}
-                                            </p>
+                                            {/* Tags */}
+                                            {post.tags && post.tags.length > 0 && (
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {post.tags.map((tag, idx) => (
+                                                        <span
+                                                            key={idx}
+                                                            className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 border border-orange-200/50 dark:border-orange-800/50"
+                                                        >
+                                                            #{tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            )}
+
+                                            {/* Title & Excerpt */}
+                                            <div className="space-y-2">
+                                                <h2 className="text-xl font-bold text-stone-900 dark:text-stone-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors line-clamp-2">
+                                                    {post.title}
+                                                </h2>
+                                                <p className="text-stone-600 dark:text-stone-400 text-sm line-clamp-3 leading-relaxed">
+                                                    {post.content}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Card Footer / Author Metadata */}
-                                    <div className="mt-6 pt-4 border-t border-stone-100 dark:border-stone-800/60 flex items-center justify-between">
-                                        <div className="flex items-center space-x-3">
-                                            <img
-                                                src={author.avatar}
-                                                alt={author.name}
-                                                className="w-8 h-8 rounded-full object-cover ring-2 ring-emerald-600/20"
-                                            />
-                                            <span className="text-xs font-medium text-stone-900 dark:text-stone-200 truncate max-w-[120px]">
-                                                {author.name}
+                                        {/* Card Footer / Author Metadata */}
+                                        <div className="mt-6 pt-4 border-t border-stone-100 dark:border-stone-800/60 flex items-center justify-between">
+                                            <div className="flex items-center space-x-3">
+                                                <img
+                                                    src={author.avatar}
+                                                    alt={author.name}
+                                                    className="w-8 h-8 rounded-full object-cover ring-2 ring-emerald-600/20"
+                                                />
+                                                <span className="text-xs font-medium text-stone-900 dark:text-stone-200 truncate max-w-[120px]">
+                                                    {author.name}
+                                                </span>
+                                            </div>
+
+                                            <span className="text-xs text-stone-400 dark:text-stone-500">
+                                                {new Date(post.createdAt).toLocaleDateString('en-US', {
+                                                    month: 'short',
+                                                    day: 'numeric',
+                                                })}
                                             </span>
                                         </div>
-
-                                        <span className="text-xs text-stone-400 dark:text-stone-500">
-                                            {new Date(post.createdAt).toLocaleDateString('en-US', {
-                                                month: 'short',
-                                                day: 'numeric',
-                                            })}
-                                        </span>
-                                    </div>
-                                </article>
+                                    </article>
 
                                 </Link>
                             );

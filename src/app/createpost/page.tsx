@@ -85,7 +85,7 @@ export default function CreatePostPage() {
 
       toast.success("✨ AI generated your post details successfully!");
     } catch (error: any) {
-      console.error("AI Generation Error:", error);
+    //   console.error("AI Generation Error:", error);
       toast.error(error.message || "Something went wrong while asking the AI.");
     } finally {
       setIsGeneratingAI(false);
