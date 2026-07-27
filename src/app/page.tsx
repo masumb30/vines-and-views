@@ -23,7 +23,7 @@ export default function Home() {
       <div className="min-h-screen bg-stone-50 text-stone-600 dark:bg-stone-950 dark:text-stone-400 font-sans transition-colors duration-300">
 
         {/* Floating Theme Controller for Interactive Review */}
-        <div className="fixed right-0 bottom-2 z-50 flex items-center gap-2 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-850 px-4 py-2 rounded-full shadow-lg">
+        {/* <div className="fixed right-0 bottom-2 z-50 flex items-center gap-2 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-850 px-4 py-2 rounded-full shadow-lg">
           <span className="text-[10px] font-extrabold uppercase tracking-widest text-stone-500 dark:text-stone-400">
             {darkMode ? "Dark Mode" : "Light Mode"}
           </span>
@@ -37,7 +37,7 @@ export default function Home() {
                 }`}
             />
           </button>
-        </div>
+        </div> */}
 
 
 
