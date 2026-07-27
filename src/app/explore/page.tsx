@@ -61,7 +61,7 @@ export default function PostsPage() {
     const [totalPages, setTotalPages] = useState<number>(1);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const handleAiOverviewClick =(e, post:IPost)=> {
+    const handleAiOverviewClick = (e: any, post: IPost) => {
         e.preventDefault();
         setSelectedPost(post);
         setIsOpen(true);
@@ -144,7 +144,7 @@ export default function PostsPage() {
                 {/* the ai summary modal */}
                 <PostModal
                     isOpen={isOpen}
-                    onClose={() => {setIsOpen(false); setSelectedPost(null)}}
+                    onClose={() => { setIsOpen(false); setSelectedPost(null) }}
                     onViewPost={() => {
                         setIsOpen(false);
                         // Navigate to post or execute view action
@@ -232,12 +232,37 @@ export default function PostsPage() {
                             const author = getAuthor(post);
                             return (
                                 <Link href={`/explore/${post._id}`} key={post._id}>
-                                    
+
                                     <article
                                         key={post._id}
                                         className="group rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.01] flex flex-col justify-between"
                                     >
-                                        <div onClick={(e)=> handleAiOverviewClick(e, post)} className={`opacity-0 group-hover:opacity-100 flex justify-end `}>sum</div>
+                                        <div className="opacity-0 group-hover:opacity-100 transition-all duration-200 flex justify-end">
+                                            <button
+                                                type="button"
+                                                onClick={(e) => handleAiOverviewClick(e, post)}
+                                                className="cursor-pointer inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-emerald-500/10 via-lime-500/10 to-teal-500/10 hover:from-emerald-500/20 hover:via-lime-500/20 hover:to-teal-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 shadow-sm hover:shadow transition-all duration-200 active:scale-95"
+                                                title="Generate AI Summary"
+                                            >
+                                                {/* AI Spark Icon */}
+                                                <svg
+                                                    className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-pulse"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                >
+                                                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                                                    <path d="M5 3v4" />
+                                                    <path d="M19 17v4" />
+                                                    <path d="M3 5h4" />
+                                                    <path d="M17 19h4" />
+                                                </svg>
+                                                <span>AI Summary</span>
+                                            </button>
+                                        </div>
                                         <div className="space-y-4">
                                             {/* Thumbnail */}
                                             <div className="relative h-48 w-full overflow-hidden rounded-xl bg-stone-100 dark:bg-stone-800">

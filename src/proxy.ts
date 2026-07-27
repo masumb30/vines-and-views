@@ -24,5 +24,5 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
     // Target all sub-routes of /dashboard and sub-routes of /properties
-    matcher: ["/dashboard/:path*", "/createpost"], 
+    matcher: ["/dashboard/:path*", "/createpost", "/dashabord/overview"], 
 };

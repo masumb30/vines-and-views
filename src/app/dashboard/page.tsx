@@ -47,7 +47,7 @@ async function getDashboardData(): Promise<IDashboardData | null> {
       headers: await headers()
     });
     if (!session?.session?.token) throw new Error('user not signed in');
-    
+
     const res = await fetch(`http://localhost:5000/dashboard`, {
       headers: {
         Authorization: `Bearer ${session.session.token}`,
@@ -84,7 +84,28 @@ export default async function DashboardPage() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900 transition-colors duration-300 dark:bg-stone-950 dark:text-stone-50 px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl space-y-6">
-
+        <div className="flex justify-end">
+          <a
+            href="/dashboard/overview"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 via-lime-600 to-teal-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-md hover:shadow-emerald-500/20 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:from-emerald-500 dark:via-lime-400 dark:to-teal-400 dark:text-stone-950 dark:focus:ring-offset-stone-900"
+          >
+            {/* AI Spark Icon */}
+            <svg
+              className="h-4 w-4 shrink-0 animate-pulse"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+              />
+            </svg>
+            <span>Generate AI overview on your account</span>
+          </a>
+        </div>
         {/* 1. Compact Hero Banner */}
         <section className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 dark:border-stone-800 dark:bg-stone-900">
           <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl dark:bg-emerald-400/10" />
@@ -160,7 +181,7 @@ export default async function DashboardPage() {
 
         {/* 3. Main Content Split Section */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          
+
           {/* Recent Posts Column (2/3 width) */}
           <section className="space-y-4 lg:col-span-2">
             <div className="flex items-center justify-between">
