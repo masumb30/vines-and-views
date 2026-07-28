@@ -28,7 +28,7 @@ export function DeletePostButton({ postId, postTitle }: DeletePostButtonProps) {
         throw new Error('Authentication token not found');
       }
 
-      const res = await fetch(`http://localhost:5000/posts/${postId}`, {
+      const res = await fetch(`https://vine-and-views-backend.onrender.com/posts/${postId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

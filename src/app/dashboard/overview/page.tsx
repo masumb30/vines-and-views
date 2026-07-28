@@ -36,7 +36,7 @@ async function getAIAccountOverview(): Promise<OverviewData | null> {
     });
     if (!session?.session?.token) throw new Error('User not signed in');
     const token = session.session.token;
-    const res = await fetch(`http://localhost:5000/account-overview`, {
+    const res = await fetch(`https://vine-and-views-backend.onrender.com/account-overview`, {
       cache: 'no-store', // Ensures fresh analytical data on load
       headers: {
         'Content-Type': 'application/json',
