@@ -48,7 +48,7 @@ async function getDashboardData(): Promise<IDashboardData | null> {
     });
     if (!session?.session?.token) throw new Error('user not signed in');
 
-    const res = await fetch(`https://vine-and-views-backend.onrender.com/dashboard`, {
+    const res = await fetch(`https://vine-and-views-backend.vercel.app/dashboard`, {
       headers: {
         Authorization: `Bearer ${session.session.token}`,
       },

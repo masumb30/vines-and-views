@@ -106,7 +106,7 @@ export default function BlogDetailPage({
         setLoading(true);
         setError(null);
 
-        const res = await fetch(`https://vine-and-views-backend.onrender.com/posts/${postId}`);
+        const res = await fetch(`https://vine-and-views-backend.vercel.app/posts/${postId}`);
 
         if (!res.ok) {
           if (res.status === 404) throw new Error("Post not found");
@@ -145,7 +145,7 @@ export default function BlogDetailPage({
       return;
     }
     try {
-      await fetch(`https://vine-and-views-backend.onrender.com/comments/${commentId}`, {
+      await fetch(`https://vine-and-views-backend.vercel.app/comments/${commentId}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${sessionData?.session?.token}` },
       });
@@ -168,7 +168,7 @@ export default function BlogDetailPage({
     try {
       setIsSubmitting(true);
 
-      const res = await fetch(`https://vine-and-views-backend.onrender.com/comments/${postId}`, {
+      const res = await fetch(`https://vine-and-views-backend.vercel.app/comments/${postId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${sessionData?.session?.token}` },
         body: JSON.stringify({ content: commentContent.trim() }),
@@ -194,7 +194,7 @@ export default function BlogDetailPage({
       return;
     }
     try {
-      await fetch(`https://vine-and-views-backend.onrender.com/posts/like/${postId}/${likeType}`, {
+      await fetch(`https://vine-and-views-backend.vercel.app/posts/like/${postId}/${likeType}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${sessionData?.session?.token}` },
       });
