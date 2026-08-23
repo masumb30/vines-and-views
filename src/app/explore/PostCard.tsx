@@ -1,4 +1,5 @@
 import { formatDate } from '@/utils/functions'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -15,9 +16,11 @@ const PostCard = ({ post }: { post: any }) => {
                         {/* Image Thumbnail with badge overlay */}
                         <div className="relative h-56 w-full overflow-hidden bg-stone-150 dark:bg-stone-950 border-b border-stone-100 dark:border-stone-850">
                             {post.thumbnail ? (
-                                <img
+                                <Image
                                     src={post.thumbnail}
                                     alt={post.title}
+                                    width={400}
+                                    height={400}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
                                 />
@@ -74,14 +77,14 @@ const PostCard = ({ post }: { post: any }) => {
                             {/* Author row */}
                             <div className="flex items-center gap-3 border-t border-stone-100 dark:border-stone-850 pt-4">
                                 <div className="w-8 h-8 rounded-full bg-emerald-700/10 text-emerald-800 dark:bg-emerald-400/10 dark:text-emerald-400 flex items-center justify-center font-extrabold text-xs shadow-inner">
-                                    {post.user.name.split(" ").map((n: any) => n[0]).join("").toUpperCase().slice(0, 2)}
+                                    {post.userId.name.split(" ").map((n: any) => n[0]).join("").toUpperCase().slice(0, 2)}
                                 </div>
                                 <div>
                                     <p className="text-xs font-extrabold text-stone-900 dark:text-stone-100 leading-tight">
-                                        {post.user.name}
+                                        {post.userId.name}
                                     </p>
                                     <p className="text-[9px] text-stone-400 dark:text-stone-500 font-semibold uppercase tracking-wider">
-                                        Gardener ID: {post.userId.replace("usr_", "")}
+                                        Gardener ID: {post.userId._id.replace("usr_", "")}
                                     </p>
                                 </div>
                             </div>
