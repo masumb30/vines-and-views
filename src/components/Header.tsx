@@ -1,5 +1,6 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect, useCallback } from 'react';
 
@@ -125,7 +126,7 @@ const Header: React.FC = ({ }) => {
                         {/* Center Section: Desktop Navigation Links */}
                         <div className="hidden lg:flex lg:items-center lg:gap-1">
                             {middleLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
                                     href={link.href}
                                     className={classNames(
@@ -138,7 +139,7 @@ const Header: React.FC = ({ }) => {
                                     )}
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
 

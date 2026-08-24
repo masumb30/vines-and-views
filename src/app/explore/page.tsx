@@ -20,6 +20,7 @@ export default async function PostsPage({ searchParams }: PageProps) {
     const { data: posts, totalPages } = await getPosts(currentPage, search);
     console.log('Fetched posts length:', posts.length, 'Total Pages:', totalPages, 'Current Page:', currentPage, 'Search Query:', search);
 
+
     return (
         <div className="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 transition-colors duration-300 px-4 py-8 md:px-8 lg:px-12">
             <div className="max-w-7xl mx-auto space-y-8">

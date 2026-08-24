@@ -6,7 +6,7 @@ import React from 'react'
 const PostCard = ({ post }: { post: any }) => {
     return (
         <>
-            <Link href="/explore/1">
+            <Link href={`/explore/${post._id}`}>
                 <article
                     key={post.title}
                     // onClick={() => setSelectedPost(post)}

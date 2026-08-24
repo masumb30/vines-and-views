@@ -72,7 +72,7 @@ export default function CreatePostPage() {
 
     setIsGeneratingAI(true);
     try {
-      const response = await fetch("https://vine-and-views-backend.vercel.app/posts/generate-ai", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/generate-ai`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -139,7 +139,7 @@ export default function CreatePostPage() {
         tags: cleanTags,
       };
 
-      const response = await fetch("https://vine-and-views-backend.vercel.app/posts", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

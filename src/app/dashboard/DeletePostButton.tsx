@@ -28,7 +28,7 @@ export function DeletePostButton({ postId, postTitle }: DeletePostButtonProps) {
         throw new Error('Authentication token not found');
       }
 
-      const res = await fetch(`https://vine-and-views-backend.vercel.app/posts/${postId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

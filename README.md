@@ -142,7 +142,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3000
 DATABASE_URL=mongodb+srv://<username>:<password>@cluster0.example.mongodb.net/vinesandviews?retryWrites=true&w=majority
 
 # Express Backend API URL (for AI generation & external endpoints)
-NEXT_PUBLIC_BACKEND_URL=https://vine-and-views-backend.vercel.app
+NEXT_PUBLIC_BACKEND_URL=${process.env.NEXT_PUBLIC_API_URL}
 
 # ImgBB API Key (for image uploads)
 NEXT_PUBLIC_IMGBB_API_KEY=your_imgbb_api_key
@@ -165,7 +165,7 @@ Open [http://localhost:3000](http://localhost:3000) in your web browser to view 
 | `BETTER_AUTH_SECRET` | Yes | Secret key for encrypting user sessions | `a_super_secret_key` |
 | `NEXT_PUBLIC_BETTER_AUTH_URL` | Yes | Frontend base URL for auth callbacks | `http://localhost:3000` |
 | `NEXT_PUBLIC_API_URL` | Yes | Public URL of the frontend application | `http://localhost:3000` |
-| `NEXT_PUBLIC_BACKEND_URL` | Yes | Express REST API backend URL | `https://vine-and-views-backend.vercel.app` |
+| `NEXT_PUBLIC_BACKEND_URL` | Yes | Express REST API backend URL | `${process.env.NEXT_PUBLIC_API_URL}` |
 | `NEXT_PUBLIC_IMGBB_API_KEY` | Optional | ImgBB key for external thumbnail uploads | `e19301072de56...` |
 
 ---

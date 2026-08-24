@@ -10,18 +10,16 @@ export async function getPosts(page: number = 1, search: string = ''): Promise<A
     });
 
     try {
-        const res = await fetch(`https://vine-and-views-backend.vercel.app/posts?${params.toString()}`, {
-            // Next.js caching: revalidate every hour (3600s) or customize as needed
-            next: { revalidate: 3600 },
-        });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?${params.toString()}`); 
+        console.log('Fetched posts response: ', res);
 
         if (!res.ok) {
-            throw new Error(`Failed to fetch posts (${res.status})`);
+            throw new Error(`Failed to fetch posts, res not okay (${res.status})`);
         }
 
         return await res.json();
     } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error('Error fetching posts: caught error: ', error);
         return { totalPages: 1, currentPage: 1, data: [] };
     }
 }

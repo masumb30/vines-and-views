@@ -36,7 +36,7 @@ async function getAIAccountOverview(): Promise<OverviewData | null> {
     });
     if (!session?.session?.token) throw new Error('User not signed in');
     const token = session.session.token;
-    const res = await fetch(`https://vine-and-views-backend.vercel.app/account-overview`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/account-overview`, {
       cache: 'no-store', // Ensures fresh analytical data on load
       headers: {
         'Content-Type': 'application/json',

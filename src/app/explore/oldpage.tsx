@@ -79,7 +79,7 @@ export default function PostsPage() {
                 ...(activeSearch && { search: activeSearch }),
             });
 
-            const res = await fetch(`https://vine-and-views-backend.vercel.app/posts?${params.toString()}`);
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?${params.toString()}`);
             // console.log('fetched post: ', await res.json())
             if (!res.ok) {
                 throw new Error(`Failed to fetch posts (${res.status})`);
