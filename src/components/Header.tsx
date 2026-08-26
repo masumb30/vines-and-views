@@ -127,6 +127,7 @@ const Header: React.FC = ({ }) => {
                         <div className="hidden lg:flex lg:items-center lg:gap-1">
                             {middleLinks.map((link) => (
                                 <Link
+                                prefetch={true}
                                     key={link.name}
                                     href={link.href}
                                     className={classNames(
