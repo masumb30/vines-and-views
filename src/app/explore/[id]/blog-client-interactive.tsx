@@ -109,14 +109,16 @@ export default function BlogClientInteractive({
       setIsSubmitting(false);
     }
   };
-
+const [likePending, setLikePending] = useState(false);
   const handleLikePost = async (likeType: "like" | "unlike") => {
+
+    try {
+      setLikePending(true);
     const { data: sessionData } = await authClient.getSession();
     if (!sessionData?.session?.token) {
       alert("You must be logged in to like a post.");
       return;
     }
-    try {
       await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/like/${postId}/${likeType}`, {
         method: "PATCH",
         headers: {
@@ -127,8 +129,11 @@ export default function BlogClientInteractive({
 
       setLiked(!liked);
       setLikesCount((prev) => (liked ? prev - 1 : prev + 1));
+      setLikePending(false);
     } catch (err) {
       console.error("Failed to like post:", err);
+    }finally {
+      setLikePending(false);
     }
   };
 
@@ -139,11 +144,14 @@ export default function BlogClientInteractive({
         <button
           disabled={!data?.session?.token}
           onClick={() => handleLikePost(liked ? "unlike" : "like")}
-          className={`flex cursor-pointer items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 font-bold hover:scale-[1.02] ${liked
+          className={`relative flex cursor-pointer items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 font-bold hover:scale-[1.02] ${liked
               ? "bg-orange-50 border-orange-200 text-orange-600 dark:bg-orange-950/20 dark:border-orange-900/50 dark:text-orange-400"
-              : "bg-white border-stone-200 text-stone-700 dark:bg-stone-900 dark:border-stone-800 dark:text-stone-300 hover:bg-stone-50"
+              : "bg-white border-stone-200 text-stone-700 dark:bg-stone-900 dark:border-stone-800 dark:text-stone-300 hover:bg-orange-500/30"
             }`}
         >
+          <span className={`${likePending ? "opacity-100" : "opacity-0"} transition-opacity  absolute top-0 left-0 w-full h-full z-10 bg-stone-900 flex items-center justify-center`}>
+            <span className="animate-spin inline-block w-4 h-4 border-t-2 border-l-2 border-r-2 border-orange-500 rounded-full"></span>
+          </span>
           <svg
             className={`w-5 h-5 ${liked
                 ? "fill-orange-600 text-orange-600 dark:fill-orange-400"

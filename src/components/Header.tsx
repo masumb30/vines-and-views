@@ -148,8 +148,8 @@ const Header: React.FC = ({ }) => {
                         <div className="hidden lg:flex lg:items-center lg:gap-4">
 
                             {
-                                isPending ? <p>loading...</p>
-                                    :
+                                isPending ? <span className="animate-spin inline-block w-4 h-4 border-t-2 border-l-2 border-r-2 border-emerald-500 rounded-full"></span> :
+                                    
                                     user ? (
                                         // ----- LOGGED IN STATE: Avatar + Name -----
                                         <div onClick={handleDropDown} className="flex items-center gap-3  relative">
