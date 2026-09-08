@@ -74,15 +74,19 @@ export default function BlogClientInteractive({
 
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!commentContent.trim() || !postId) return;
-    const { data: sessionData } = await authClient.getSession();
-    if (!sessionData?.session?.token) {
-      alert("You must be logged in to post a comment.");
-      return;
-    }
 
     try {
+
       setIsSubmitting(true);
+      if (!commentContent.trim() || !postId) return;
+      
+
+      const { data: sessionData } = await authClient.getSession();
+      if (!sessionData?.session?.token) {
+        alert("You must be logged in to post a comment.");
+        return;
+      }
+
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/comments/${postId}`, {
         method: "POST",
@@ -135,18 +139,16 @@ export default function BlogClientInteractive({
         <button
           disabled={!data?.session?.token}
           onClick={() => handleLikePost(liked ? "unlike" : "like")}
-          className={`flex cursor-pointer items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 font-bold hover:scale-[1.02] ${
-            liked
+          className={`flex cursor-pointer items-center gap-2 py-3 px-6 rounded-2xl border transition-all duration-300 font-bold hover:scale-[1.02] ${liked
               ? "bg-orange-50 border-orange-200 text-orange-600 dark:bg-orange-950/20 dark:border-orange-900/50 dark:text-orange-400"
               : "bg-white border-stone-200 text-stone-700 dark:bg-stone-900 dark:border-stone-800 dark:text-stone-300 hover:bg-stone-50"
-          }`}
+            }`}
         >
           <svg
-            className={`w-5 h-5 ${
-              liked
+            className={`w-5 h-5 ${liked
                 ? "fill-orange-600 text-orange-600 dark:fill-orange-400"
                 : "currentColor"
-            }`}
+              }`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

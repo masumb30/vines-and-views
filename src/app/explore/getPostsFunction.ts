@@ -10,6 +10,7 @@ export async function getPosts(page: number = 1, search: string = ''): Promise<A
     });
 
     try {
+        console.log(process.env.NEXT_PUBLIC_API_URL);
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?${params.toString()}`); 
         console.log('Fetched posts response: ', res);
 
