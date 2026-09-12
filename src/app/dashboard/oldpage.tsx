@@ -88,7 +88,7 @@ export default async function DashboardPage() {
         {/* 1. Compact Hero Banner */}
         <section className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 dark:border-stone-800 dark:bg-stone-900">
           {/* Subtle Decorative Gradient Backdrop */}
-          <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl dark:bg-emerald-400/10" />
+          <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-lime-500/10 blur-3xl dark:bg-lime-400/10" />
           <div className="pointer-events-none absolute -bottom-12 right-24 h-40 w-40 rounded-full bg-orange-500/10 blur-2xl dark:bg-orange-400/10" />
 
           <div className="relative z-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
           <div className="rounded-2xl border border-stone-200 bg-white p-6 transition-all duration-300 hover:scale-[1.01] dark:border-stone-800 dark:bg-stone-900">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-stone-600 dark:text-stone-400">Total Posts Published</span>
-              <div className="rounded-xl bg-emerald-100 p-2 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400">
+              <div className="rounded-xl bg-lime-100 p-2 text-lime-700 dark:bg-lime-950/60 dark:text-lime-400">
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                 </svg>
@@ -149,7 +149,7 @@ export default async function DashboardPage() {
           <div className="rounded-2xl border border-stone-200 bg-white p-6 transition-all duration-300 hover:scale-[1.01] dark:border-stone-800 dark:bg-stone-900">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-stone-600 dark:text-stone-400">Community Comments</span>
-              <div className="rounded-xl bg-emerald-100 p-2 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400">
+              <div className="rounded-xl bg-lime-100 p-2 text-lime-700 dark:bg-lime-950/60 dark:text-lime-400">
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                 </svg>
@@ -166,7 +166,7 @@ export default async function DashboardPage() {
           <section className="space-y-4 lg:col-span-2">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-stone-900 dark:text-stone-50">Recent Garden Articles</h2>
-              <a href="/posts" className="text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400">
+              <a href="/posts" className="text-xs font-semibold text-lime-700 hover:underline dark:text-lime-400">
                 View all
               </a>
             </div>
@@ -217,7 +217,7 @@ export default async function DashboardPage() {
                           {post.likesCount}
                         </span>
                         <span className="flex items-center gap-1">
-                          <svg className="h-4 w-4 text-emerald-700 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-4 w-4 text-lime-700 dark:text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                           </svg>
                           {post.commentsCount}

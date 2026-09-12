@@ -142,7 +142,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className={`w-full py-3 px-4 mt-2 rounded-xl bg-gradient-to-r from-emerald-500 to-indigo-600 text-white font-medium hover:from-emerald-600 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/10 cursor-pointer
+            className={`w-full py-3 px-4 mt-2 rounded-xl bg-gradient-to-r from-lime-500 to-indigo-600 text-white font-medium hover:from-lime-600 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/10 cursor-pointer
               ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             {isLoading ? 'Signing In...' : 'Sign In'}

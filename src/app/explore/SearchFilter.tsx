@@ -54,7 +54,7 @@ export default function SearchFilter() {
                 <div className="flex gap-3 w-full md:w-auto">
                     <button
                         type="submit"
-                        className="flex-1 md:flex-initial px-6 py-3 rounded-2xl bg-lime-600 hover:bg-lime-700 dark:bg-lime-400 dark:hover:bg-lime-500 text-white dark:text-stone-950 font-medium transition-all duration-300 ease-out hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:focus:ring-offset-stone-900 shadow-sm flex items-center justify-center gap-2"
+                        className="cursor-pointer flex-1 md:flex-initial px-6 py-3 rounded-2xl bg-lime-600 hover:bg-lime-700 dark:bg-lime-400 dark:hover:bg-lime-500 text-white dark:text-stone-950 font-medium transition-all duration-300 ease-out hover:scale-[1.01]  shadow-sm flex items-center justify-center gap-2"
                     >
                         <span>Filter Posts</span>
                     </button>
@@ -63,7 +63,7 @@ export default function SearchFilter() {
                         <button
                             type="button"
                             onClick={handleClear}
-                            className="px-4 py-3 rounded-2xl border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-300 text-sm font-medium"
+                            className="cursor-pointer hover:bg-lime-200 px-4 py-3 rounded-2xl border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400  dark:hover:bg-stone-800 transition-all duration-300 text-sm font-medium"
                         >
                             Clear
                         </button>

@@ -252,7 +252,7 @@ export default function BlogDetailPage({
         <div className="mb-6">
           <Link
             href="/explore"
-            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 transition-colors group"
+            className="inline-flex items-center gap-2 text-sm font-bold text-lime-700 dark:text-lime-400 hover:text-lime-800 transition-colors group"
           >
             <svg
               className="w-4 h-4 transition-transform group-hover:-translate-x-1"
@@ -315,7 +315,7 @@ export default function BlogDetailPage({
                     className="w-12 h-12 rounded-full object-cover border border-stone-200 dark:border-stone-700 shadow-sm"
                   />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-emerald-700 text-white dark:bg-emerald-400 dark:text-stone-950 flex items-center justify-center font-extrabold text-sm shadow-md">
+                  <div className="w-12 h-12 rounded-full bg-lime-700 text-white dark:bg-lime-400 dark:text-stone-950 flex items-center justify-center font-extrabold text-sm shadow-md">
                     {getInitials(post.userId?.name)}
                   </div>
                 )}
@@ -501,7 +501,7 @@ export default function BlogDetailPage({
                         className="w-8 h-8 rounded-full object-cover shrink-0"
                       />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-emerald-700/10 text-emerald-800 dark:bg-emerald-400/10 dark:text-emerald-400 flex items-center justify-center font-extrabold shrink-0 text-sm">
+                      <div className="w-8 h-8 rounded-full bg-lime-700/10 text-lime-800 dark:bg-lime-400/10 dark:text-lime-400 flex items-center justify-center font-extrabold shrink-0 text-sm">
                         {getInitials(comment.userId?.name)}
                       </div>
                     )}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
+import {motion} from 'motion/react'
 
 // ==========================================
 // 1. PLATFORM METRICS / STATISTICS PANEL
@@ -37,7 +38,7 @@ function MetricItem({ label, targetValue, suffix, icon }: MetricItemProps) {
 
   return (
     <div className="group flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-[1.02] bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl shadow-sm hover:shadow-md">
-      <div className="mb-3 text-emerald-700 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">
+      <div className="mb-3 text-lime-700 dark:text-lime-400 group-hover:scale-110 transition-transform duration-300">
         {icon}
       </div>
       <span className="text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">
@@ -107,9 +108,9 @@ function AICoreFeatures() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Card A: Context-Aware Botanical Assistant */}
-      <div className="group flex flex-col justify-between p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
+      <motion.div initial={{opacity: 0, x: -30}} whileInView={{opacity: 1, x: 0}} transition={{duration: 0.6, ease: "easeOut"}} viewport={{ once: true, amount: 0.2 }} className="group flex flex-col justify-between p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl shadow-sm hover:shadow-md ">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 mb-4 border border-emerald-100 dark:border-emerald-900/50">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-lime-50 dark:bg-lime-950/30 text-lime-700 dark:text-lime-400 mb-4 border border-lime-100 dark:border-lime-900/50">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
@@ -136,7 +137,7 @@ function AICoreFeatures() {
                 onClick={() => handleChatPresetClick(idx)}
                 className={`text-xs px-3 py-1.5 rounded-full border transition-all duration-300 ease-out font-medium hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 ${
                   chatPreset === idx
-                    ? "bg-emerald-700 text-white border-emerald-700 dark:bg-emerald-400 dark:text-stone-950 dark:border-emerald-400"
+                    ? "bg-lime-700 text-white border-lime-700 dark:bg-lime-400 dark:text-stone-950 dark:border-lime-400"
                     : "bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800"
                 }`}
               >
@@ -158,15 +159,15 @@ function AICoreFeatures() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <div className="w-5 h-5 rounded-full bg-emerald-600 dark:bg-emerald-400 flex items-center justify-center text-white dark:text-stone-950 text-[10px] font-bold shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-lime-600 dark:bg-lime-400 flex items-center justify-center text-white dark:text-stone-950 text-[10px] font-bold shrink-0">
                     AI
                   </div>
-                  <div className="bg-emerald-50/50 dark:bg-emerald-950/20 rounded-lg px-3 py-1.5 max-w-[85%] leading-relaxed border border-emerald-100/50 dark:border-emerald-900/30">
+                  <div className="bg-lime-50/50 dark:bg-lime-950/20 rounded-lg px-3 py-1.5 max-w-[85%] leading-relaxed border border-lime-100/50 dark:border-lime-900/30">
                     {isTyping ? (
                       <div className="flex items-center gap-1 py-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-bounce"></span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-bounce [animation-delay:0.2s]"></span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-bounce [animation-delay:0.4s]"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-lime-600 dark:bg-lime-400 animate-bounce"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-lime-600 dark:bg-lime-400 animate-bounce [animation-delay:0.2s]"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-lime-600 dark:bg-lime-400 animate-bounce [animation-delay:0.4s]"></span>
                       </div>
                     ) : (
                       chatResponse
@@ -177,10 +178,10 @@ function AICoreFeatures() {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Card B: AI Content Optimizer & Automatic Tagging */}
-      <div className="group flex flex-col justify-between p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
+      <motion.div initial={{opacity: 0, x: 30}} whileInView={{opacity: 1, x: 0}} transition={{duration: 0.6, ease: "easeOut"}} viewport={{ once: true, amount: 0.2 }} className="group flex flex-col justify-between p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl shadow-sm hover:shadow-md ">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-400 mb-4 border border-orange-100 dark:border-orange-900/50">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -264,7 +265,8 @@ function AICoreFeatures() {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
+
     </div>
   );
 }
@@ -300,14 +302,14 @@ function TrendingCommunityPosts() {
       authorTitle: "Soil Microbiologist",
       content: "Hydrangeas are nature's litmus paper. In highly acidic soils (pH 5.0 to 5.5), plants absorb aluminum, rendering the blossoms a deep indigo. In alkaline environments (pH 6.5 to 7.0), aluminum is locked away, yielding rosy pink petals. To shift pH, gardeners use soil sulfur or agricultural lime, but adjusting should be slow and validated through tests. Always protect root zones from sudden composition shock by mulching with composted leaf mold.",
       pattern: (
-        <svg className="w-full h-full text-emerald-800/10 dark:text-emerald-400/5" viewBox="0 0 100 100" fill="currentColor">
+        <svg className="w-full h-full text-lime-800/10 dark:text-lime-400/5" viewBox="0 0 100 100" fill="currentColor">
           <defs>
             <pattern id="grid1" width="10" height="10" patternUnits="userSpaceOnUse">
               <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid1)" />
-          <circle cx="50" cy="50" r="30" className="text-emerald-700/20 dark:text-emerald-400/10" fill="none" stroke="currentColor" strokeWidth="2" />
+          <circle cx="50" cy="50" r="30" className="text-lime-700/20 dark:text-lime-400/10" fill="none" stroke="currentColor" strokeWidth="2" />
           <path d="M20,50 Q50,20 80,50 T50,80 Z" className="text-orange-500/20 dark:text-orange-400/10" fill="none" stroke="currentColor" strokeWidth="1.5" />
         </svg>
       ),
@@ -323,8 +325,8 @@ function TrendingCommunityPosts() {
       authorTitle: "Nursery Propagator",
       content: "Air layering is a historic propagation shortcut for woody shrubs and trees. By girdling a small band of bark and wrapping it with damp sphagnum moss encased in plastic, you stimulate root development directly on the parent branch. Once a healthy bundle of white roots becomes visible within the wrapping, sever the branch below the wrap and pot your new, mature cloned plant.",
       pattern: (
-        <svg className="w-full h-full text-emerald-800/10 dark:text-emerald-400/5" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M50,10 C30,35 30,65 50,90 C70,65 70,35 50,10 Z" className="text-emerald-700/20 dark:text-emerald-400/10" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <svg className="w-full h-full text-lime-800/10 dark:text-lime-400/5" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50,10 C30,35 30,65 50,90 C70,65 70,35 50,10 Z" className="text-lime-700/20 dark:text-lime-400/10" fill="none" stroke="currentColor" strokeWidth="1.5" />
           <path d="M10,50 C35,30 65,30 90,50 C65,70 35,70 10,50 Z" className="text-orange-500/20 dark:text-orange-400/10" fill="none" stroke="currentColor" strokeWidth="1" />
         </svg>
       ),
@@ -340,8 +342,8 @@ function TrendingCommunityPosts() {
       authorTitle: "Permaculture Designer",
       content: "Raised beds offer high density yield, but only when paired intelligently. Planting French marigolds near tomatoes deters soil-dwelling root nematodes, while sweet basil enhances tomato flavor and repels thrips and hornworms. Radishes under squash draw flea beetles away from tender leaves. Combine rooting depths systematically so heavy feeders and shallow greens share nutrients harmoniously.",
       pattern: (
-        <svg className="w-full h-full text-emerald-800/10 dark:text-emerald-400/5" viewBox="0 0 100 100" fill="currentColor">
-          <circle cx="25" cy="25" r="15" className="text-emerald-700/20 dark:text-emerald-400/10" fill="none" stroke="currentColor" strokeWidth="1" />
+        <svg className="w-full h-full text-lime-800/10 dark:text-lime-400/5" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="25" cy="25" r="15" className="text-lime-700/20 dark:text-lime-400/10" fill="none" stroke="currentColor" strokeWidth="1" />
           <circle cx="75" cy="75" r="15" className="text-orange-500/20 dark:text-orange-400/10" fill="none" stroke="currentColor" strokeWidth="1" />
           <line x1="25" y1="25" x2="75" y2="75" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" />
         </svg>
@@ -358,8 +360,8 @@ function TrendingCommunityPosts() {
       authorTitle: "Pomologist",
       content: "Orchard pest control in Zone 8 demands a balance of organic sprays and predatory bio-defenses. High humidity fosters aphids and codling moth larvae. Instead of broad pesticides, apply organic cold-pressed neem oil during dormant phases, install pheromone traps early in spring, and release ladybugs and green lacewings near fruit clusters to devour pests before they pierce developing skins.",
       pattern: (
-        <svg className="w-full h-full text-emerald-800/10 dark:text-emerald-400/5" viewBox="0 0 100 100" fill="currentColor">
-          <polygon points="50,15 85,80 15,80" className="text-emerald-700/20 dark:text-emerald-400/10" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <svg className="w-full h-full text-lime-800/10 dark:text-lime-400/5" viewBox="0 0 100 100" fill="currentColor">
+          <polygon points="50,15 85,80 15,80" className="text-lime-700/20 dark:text-lime-400/10" fill="none" stroke="currentColor" strokeWidth="1.5" />
           <line x1="50" y1="15" x2="50" y2="80" stroke="currentColor" strokeWidth="0.5" />
         </svg>
       ),
@@ -391,7 +393,7 @@ function TrendingCommunityPosts() {
               </div>
 
               {/* Title */}
-              <h4 className="mt-2 text-base font-extrabold text-stone-900 dark:text-stone-50 tracking-tight leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors duration-300">
+              <h4 className="mt-2 text-base font-extrabold text-stone-900 dark:text-stone-50 tracking-tight leading-snug group-hover:text-lime-700 dark:group-hover:text-lime-400 transition-colors duration-300">
                 {post.title}
               </h4>
 
@@ -615,7 +617,7 @@ function DynamicPlantExplorer() {
                 onClick={() => setSelectedZone(zone)}
                 className={`text-xs px-3 py-1.5 rounded-xl border transition-all duration-300 ease-out font-medium hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 ${
                   selectedZone === zone
-                    ? "bg-emerald-700 text-white border-emerald-700 dark:bg-emerald-400 dark:text-stone-950 dark:border-emerald-400"
+                    ? "bg-lime-700 text-white border-lime-700 dark:bg-lime-400 dark:text-stone-950 dark:border-lime-400"
                     : "bg-stone-50 dark:bg-stone-950 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800"
                 }`}
               >
@@ -637,7 +639,7 @@ function DynamicPlantExplorer() {
                 onClick={() => setSelectedSoil(soil)}
                 className={`text-xs px-3 py-1.5 rounded-xl border transition-all duration-300 ease-out font-medium hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 ${
                   selectedSoil === soil
-                    ? "bg-emerald-700 text-white border-emerald-700 dark:bg-emerald-400 dark:text-stone-950 dark:border-emerald-400"
+                    ? "bg-lime-700 text-white border-lime-700 dark:bg-lime-400 dark:text-stone-950 dark:border-lime-400"
                     : "bg-stone-50 dark:bg-stone-950 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800"
                 }`}
               >
@@ -673,12 +675,12 @@ function DynamicPlantExplorer() {
             {filteredPlants.map((plant, idx) => (
               <div
                 key={idx}
-                className="group flex flex-col justify-between p-5 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-950 transition-all duration-300 hover:scale-[1.01] hover:border-emerald-600/30 dark:hover:border-emerald-400/30"
+                className="group flex flex-col justify-between p-5 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-950 transition-all duration-300 hover:scale-[1.01] hover:border-lime-600/30 dark:hover:border-lime-400/30"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h5 className="text-sm font-extrabold text-stone-900 dark:text-stone-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                      <h5 className="text-sm font-extrabold text-stone-900 dark:text-stone-50 group-hover:text-lime-700 dark:group-hover:text-lime-400 transition-colors">
                         {plant.name}
                       </h5>
                       <span className="text-xs italic text-stone-400 dark:text-stone-500">
@@ -755,7 +757,7 @@ function CommunityWallFeed() {
       author: "Aria Thorne",
       role: "Permaculture Designer",
       avatarInitials: "AT",
-      avatarBg: "bg-emerald-600 text-white",
+      avatarBg: "bg-lime-600 text-white",
       time: "2 hours ago",
       content: "Just harvested my first batch of organic vermicompost! The worm activity was off the charts this season. Ready to enrich the Zone 6b raised beds for autumn.",
       tag: "#SoilMicrobiology",
@@ -920,7 +922,7 @@ function CommunityWallFeed() {
             {/* Comment Count / Collapse */}
             <button
               onClick={() => toggleComments(post.id)}
-              className="flex items-center gap-1.5 transition-all duration-300 ease-out hover:scale-105 hover:text-emerald-700 dark:hover:text-emerald-400 focus:outline-none"
+              className="flex items-center gap-1.5 transition-all duration-300 ease-out hover:scale-105 hover:text-lime-700 dark:hover:text-lime-400 focus:outline-none"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -931,8 +933,8 @@ function CommunityWallFeed() {
             {/* Reshare */}
             <button
               onClick={() => handleReshare(post.id)}
-              className={`flex items-center gap-1.5 transition-all duration-300 ease-out hover:scale-105 hover:text-emerald-700 dark:hover:text-emerald-400 focus:outline-none ${
-                post.isResharedByUser ? "text-emerald-700 dark:text-emerald-400" : ""
+              className={`flex items-center gap-1.5 transition-all duration-300 ease-out hover:scale-105 hover:text-lime-700 dark:hover:text-lime-400 focus:outline-none ${
+                post.isResharedByUser ? "text-lime-700 dark:text-lime-400" : ""
               }`}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -982,7 +984,7 @@ function CommunityWallFeed() {
                 />
                 <button
                   onClick={() => submitComment(post.id)}
-                  className="py-2.5 px-4 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white dark:bg-emerald-400 dark:hover:bg-emerald-500 dark:text-stone-950 text-xs font-bold transition-all duration-300 ease-out hover:scale-105 focus:outline-none"
+                  className="py-2.5 px-4 rounded-2xl bg-lime-700 hover:bg-lime-800 text-white dark:bg-lime-400 dark:hover:bg-lime-500 dark:text-stone-950 text-xs font-bold transition-all duration-300 ease-out hover:scale-105 focus:outline-none"
                 >
                   Send
                 </button>
@@ -1025,7 +1027,7 @@ function SeasonalNewsletter() {
         <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
           Join the Autumn Planting Pipeline
         </h3>
-        <p className="mt-3 text-emerald-50 dark:text-stone-850 max-w-xl text-sm md:text-base leading-relaxed font-medium">
+        <p className="mt-3 text-lime-50 dark:text-stone-850 max-w-xl text-sm md:text-base leading-relaxed font-medium">
           Receive region-specific frost warnings, crop planting calendars, and organic pest mitigation advice direct to your inbox.
         </p>
 
@@ -1037,7 +1039,7 @@ function SeasonalNewsletter() {
               </div>
               <div>
                 <h4 className="text-sm font-extrabold">You're on the list!</h4>
-                <p className="text-xs text-emerald-50 dark:text-stone-800 mt-0.5">
+                <p className="text-xs text-lime-50 dark:text-stone-800 mt-0.5">
                   Regional alerts for <span className="font-extrabold">{zone}</span> will be dispatched to <span className="font-extrabold">{email}</span>.
                 </p>
               </div>
@@ -1052,7 +1054,7 @@ function SeasonalNewsletter() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="flex-1 text-sm px-4 py-3 rounded-2xl border border-white/10 bg-white/10 focus:bg-white focus:text-stone-900 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-stone-950 placeholder-emerald-100 dark:placeholder-stone-700 transition-all font-medium text-white"
+                className="flex-1 text-sm px-4 py-3 rounded-2xl border border-white/10 bg-white/10 focus:bg-white focus:text-stone-900 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-stone-950 placeholder-lime-100 dark:placeholder-stone-700 transition-all font-medium text-white"
               />
               <select
                 value={zone}

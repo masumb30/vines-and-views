@@ -115,7 +115,7 @@ export default function LoginPage() {
                         type="button"
                         disabled={isLoading}
                         onClick={handleAutofill}
-                        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-medium rounded-xl border border-dashed border-stone-300 dark:border-stone-700 bg-stone-50/50 dark:bg-stone-950/40 text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-emerald-600 dark:hover:border-emerald-400 hover:scale-[1.01] transition-all duration-300 ease-out focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:focus:ring-offset-stone-900"
+                        className="cursor-pointer w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-medium rounded-xl border border-dashed border-stone-300 dark:border-stone-700 bg-stone-50/50 dark:bg-stone-950/40 text-stone-600 dark:text-stone-400 hover:text-lime-700 dark:hover:text-lime-400 hover:border-lime-600 dark:hover:border-lime-400 hover:scale-[1.01] transition-all duration-300 ease-out"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -162,7 +162,7 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className={`w-full flex items-center justify-center gap-2 py-3 px-4 mt-4 rounded-xl text-white font-medium bg-lime-600 dark:bg-lime-400 dark:text-stone-950 hover:scale-[1.01] transition-all duration-300 ease-out focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:focus:ring-offset-stone-900 ${isLoading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer shadow-md'
+                        className={`w-full flex items-center justify-center gap-2 py-3 px-4 mt-4 rounded-xl text-white font-medium bg-lime-500 hover:text-white hover:bg-lime-700  dark:text-stone-950 hover:scale-[1.01] transition-all duration-300 ease-out  ${isLoading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer shadow-md'
                             }`}
                     >
                         {isLoading ? (
@@ -184,7 +184,7 @@ export default function LoginPage() {
                     New to the collective?{' '}
                     <Link
                         href="/register"
-                        className={`font-semibold text-emerald-700 dark:text-emerald-400 hover:underline ${isLoading ? 'pointer-events-none opacity-50' : ''
+                        className={`font-semibold text-lime-700 dark:text-lime-400 hover:underline ${isLoading ? 'pointer-events-none opacity-50' : ''
                             }`}
                     >
                         Create an Account

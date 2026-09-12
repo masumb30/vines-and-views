@@ -131,7 +131,7 @@ export default function SignupPage() {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="cursor-pointer w-full flex items-center justify-center gap-2 py-3 px-4 mt-2 rounded-xl bg-linear-to-r from-emerald-500 to-indigo-500 text-white font-medium hover:from-emerald-600 hover:to-indigo-800 transition-all shadow-lg shadow-indigo-500/10 disabled:opacity-70 disabled:from-indigo-500 disabled:to-purple-600 ${
+                        className="cursor-pointer w-full flex items-center justify-center gap-2 py-3 px-4 mt-2 rounded-xl bg-linear-to-r from-lime-500 to-indigo-500 text-white font-medium hover:from-lime-600 hover:to-indigo-800 transition-all shadow-lg shadow-indigo-500/10 disabled:opacity-70 disabled:from-indigo-500 disabled:to-purple-600 ${
                             isLoading ? 'cursor-not-allowed' : 'cursor-pointer'
                         }"
                     >

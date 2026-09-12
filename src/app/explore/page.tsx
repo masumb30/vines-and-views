@@ -32,7 +32,7 @@ export default async function PostsPage({ searchParams }: PageProps) {
                             Community Knowledge Hub
                         </span>
                         <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">
-                            Organic Gardening & <span className="text-emerald-700 dark:text-emerald-400">Horticulture</span>
+                            Organic Gardening & <span className="text-lime-700 dark:text-lime-400">Horticulture</span>
                         </h1>
                         <p className="text-stone-600 dark:text-stone-400 text-base md:text-lg">
                             Discover eco-friendly cultivation techniques, botanical guides, and seasonal wisdom shared by our certified growers.

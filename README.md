@@ -42,7 +42,7 @@
 - **Protected Routes**: Middleware and session authorization safeguarding user dashboards and post creation.
 
 ### 🌗 Earthy Botanical Design System
-- **Tailwind CSS v4 & Motion**: Organic palette featuring Emerald/Lime growth tones, Terracotta accents, soft stone backgrounds, and `rounded-3xl` soft curves.
+- **Tailwind CSS v4 & Motion**: Organic palette featuring lime/Lime growth tones, Terracotta accents, soft stone backgrounds, and `rounded-3xl` soft curves.
 - **Seamless Light & Dark Modes**: Full compliance across all UI components with the `dark:` modifier.
 
 ---
@@ -174,7 +174,7 @@ Open [http://localhost:3000](http://localhost:3000) in your web browser to view 
 
 The Vines & Views UI follows strict botanical design guidelines:
 
-- 🟢 **Primary Colors (Growth & Nature)**: Tailwind Emerald (`text-emerald-700` / `dark:text-emerald-400`) & Lime (`bg-lime-600` / `bg-lime-400`).
+- 🟢 **Primary Colors (Growth & Nature)**: Tailwind lime (`text-lime-700` / `dark:text-lime-400`) & Lime (`bg-lime-600` / `bg-lime-400`).
 - 🟧 **Secondary Colors (Terracotta Accent)**: Orange spectrum (`bg-orange-100`, `text-orange-600` / `dark:text-orange-400`) for badges and category highlights.
 - 🪨 **Backgrounds**: Stone spectrum (`bg-stone-50` for Light mode, `bg-stone-950` for Dark mode).
 - 🪴 **Aesthetics**: Soft organic curves (`rounded-3xl` for hero sections, `rounded-2xl` for cards and inputs), focus ring accessibility, and smooth micro-hover transitions (`hover:scale-[1.01]`).

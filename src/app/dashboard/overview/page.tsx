@@ -110,7 +110,7 @@ export default async function AIAccountOverviewPage() {
           </div>
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-xs dark:border-stone-800 dark:bg-stone-900">
             <p className="text-xs font-medium text-stone-600 dark:text-stone-400">Likes Received</p>
-            <p className="mt-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">{metrics.totalLikesReceived}</p>
+            <p className="mt-1 text-2xl font-bold text-lime-700 dark:text-lime-400">{metrics.totalLikesReceived}</p>
           </div>
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-xs dark:border-stone-800 dark:bg-stone-900">
             <p className="text-xs font-medium text-stone-600 dark:text-stone-400">Comments Received</p>
@@ -211,7 +211,7 @@ export default async function AIAccountOverviewPage() {
                   {idea.suggestedTags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className="rounded-lg bg-emerald-100/60 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400"
+                      className="rounded-lg bg-lime-100/60 px-2.5 py-0.5 text-[11px] font-medium text-lime-700 dark:bg-lime-950/60 dark:text-lime-400"
                     >
                       #{tag.toLowerCase()}
                     </span>

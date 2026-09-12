@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
           </span>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl dark:text-stone-50">
-            How <span className="text-emerald-700 dark:text-emerald-400">Vines &amp; Views</span> Works
+            How <span className="text-lime-700 dark:text-lime-400">Vines &amp; Views</span> Works
           </h1>
 
           <p className="mx-auto max-w-2xl text-base text-stone-600 sm:text-lg dark:text-stone-400">
@@ -199,13 +199,13 @@ export default function HowItWorksPage() {
 
       {/* BOTTOM CTA BANNER */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-stone-200 bg-emerald-700 p-8 text-center shadow-xl dark:border-stone-800 dark:bg-stone-900 lg:p-12">
+        <div className="relative overflow-hidden rounded-3xl border border-stone-200 bg-lime-700 p-8 text-center shadow-xl dark:border-stone-800 dark:bg-stone-900 lg:p-12">
           
           <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
             <h2 className="text-3xl font-extrabold tracking-tight text-white dark:text-stone-50">
               Ready to grow your botanical garden &amp; network?
             </h2>
-            <p className="text-emerald-100 text-sm sm:text-base dark:text-stone-400">
+            <p className="text-lime-100 text-sm sm:text-base dark:text-stone-400">
               Join thousands of horticulturists sharing plant logs, advice, and local cuttings today.
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">

@@ -40,7 +40,7 @@ export const VinesAndViewsFooter: React.FC = () => {
                   />
                   <button
                     type="submit"
-                    className="inline-flex shrink-0 items-center justify-center rounded-2xl bg-emerald-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:bg-lime-400 dark:text-stone-950 dark:hover:bg-lime-300 dark:focus:ring-offset-stone-900"
+                    className="inline-flex shrink-0 items-center justify-center rounded-2xl bg-lime-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:bg-lime-800 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:bg-lime-400 dark:text-stone-950 dark:hover:bg-lime-300 dark:focus:ring-offset-stone-900"
                   >
                     Subscribe
                   </button>
@@ -64,7 +64,7 @@ export const VinesAndViewsFooter: React.FC = () => {
                 🌿
               </span>
               <span className="text-xl font-black tracking-tight text-stone-900 dark:text-stone-50">
-                Vines <span className="text-emerald-700 dark:text-emerald-400">&amp;</span> Views
+                Vines <span className="text-lime-700 dark:text-lime-400">&amp;</span> Views
               </span>
             </div>
             <p className="max-w-sm text-sm text-stone-600 dark:text-stone-400">
@@ -76,7 +76,7 @@ export const VinesAndViewsFooter: React.FC = () => {
                 <a
                   key={platform}
                   href={`#${platform.toLowerCase()}`}
-                  className="rounded-2xl border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-600 shadow-sm transition-all duration-300 hover:scale-[1.01] hover:border-lime-500 hover:text-emerald-700 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:border-lime-400 dark:hover:text-emerald-400 dark:focus:ring-offset-stone-950"
+                  className="rounded-2xl border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-600 shadow-sm transition-all duration-300 hover:scale-[1.01] hover:border-lime-500 hover:text-lime-700 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:border-lime-400 dark:hover:text-lime-400 dark:focus:ring-offset-stone-950"
                 >
                   {platform}
                 </a>
@@ -94,7 +94,7 @@ export const VinesAndViewsFooter: React.FC = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-stone-600 transition-all duration-300 hover:text-emerald-700 hover:underline dark:text-stone-400 dark:hover:text-emerald-400"
+                    className="text-stone-600 transition-all duration-300 hover:text-lime-700 hover:underline dark:text-stone-400 dark:hover:text-lime-400"
                   >
                     {item}
                   </a>
@@ -113,7 +113,7 @@ export const VinesAndViewsFooter: React.FC = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-stone-600 transition-all duration-300 hover:text-emerald-700 hover:underline dark:text-stone-400 dark:hover:text-emerald-400"
+                    className="text-stone-600 transition-all duration-300 hover:text-lime-700 hover:underline dark:text-stone-400 dark:hover:text-lime-400"
                   >
                     {item}
                   </a>
@@ -132,7 +132,7 @@ export const VinesAndViewsFooter: React.FC = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-stone-600 transition-all duration-300 hover:text-emerald-700 hover:underline dark:text-stone-400 dark:hover:text-emerald-400"
+                    className="text-stone-600 transition-all duration-300 hover:text-lime-700 hover:underline dark:text-stone-400 dark:hover:text-lime-400"
                   >
                     {item}
                   </a>
@@ -147,7 +147,7 @@ export const VinesAndViewsFooter: React.FC = () => {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-stone-200 py-8 text-xs text-stone-500 dark:border-stone-800 dark:text-stone-500 sm:flex-row">
           <p>© {new Date().getFullYear()} Vines &amp; Views Inc. Cultivating community globally.</p>
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+            <span className="flex items-center gap-1.5 text-lime-700 dark:text-lime-400">
               <span className="h-2 w-2 rounded-full bg-lime-500 animate-ping" />
               All Systems Growing
             </span>

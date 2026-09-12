@@ -133,7 +133,7 @@ export default function PostsPage() {
                             Community Knowledge Hub
                         </span>
                         <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">
-                            Organic Gardening & <span className="text-emerald-700 dark:text-emerald-400">Horticulture</span>
+                            Organic Gardening & <span className="text-lime-700 dark:text-lime-400">Horticulture</span>
                         </h1>
                         <p className="text-stone-600 dark:text-stone-400 text-base md:text-lg">
                             Discover eco-friendly cultivation techniques, botanical guides, and seasonal wisdom shared by our certified growers.
@@ -241,12 +241,12 @@ export default function PostsPage() {
                                             <button
                                                 type="button"
                                                 onClick={(e) => handleAiOverviewClick(e, post)}
-                                                className="cursor-pointer inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-emerald-500/10 via-lime-500/10 to-teal-500/10 hover:from-emerald-500/20 hover:via-lime-500/20 hover:to-teal-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 shadow-sm hover:shadow transition-all duration-200 active:scale-95"
+                                                className="cursor-pointer inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-lime-500/10 via-lime-500/10 to-teal-500/10 hover:from-lime-500/20 hover:via-lime-500/20 hover:to-teal-500/20 border border-lime-500/30 text-lime-700 dark:text-lime-300 shadow-sm hover:shadow transition-all duration-200 active:scale-95"
                                                 title="Generate AI Summary"
                                             >
                                                 {/* AI Spark Icon */}
                                                 <svg
-                                                    className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-pulse"
+                                                    className="w-3.5 h-3.5 text-lime-600 dark:text-lime-400 animate-pulse"
                                                     viewBox="0 0 24 24"
                                                     fill="none"
                                                     stroke="currentColor"
@@ -290,7 +290,7 @@ export default function PostsPage() {
 
                                             {/* Title & Excerpt */}
                                             <div className="space-y-2">
-                                                <h2 className="text-xl font-bold text-stone-900 dark:text-stone-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors line-clamp-2">
+                                                <h2 className="text-xl font-bold text-stone-900 dark:text-stone-50 group-hover:text-lime-700 dark:group-hover:text-lime-400 transition-colors line-clamp-2">
                                                     {post.title}
                                                 </h2>
                                                 <p className="text-stone-600 dark:text-stone-400 text-sm line-clamp-3 leading-relaxed">
@@ -305,7 +305,7 @@ export default function PostsPage() {
                                                 <img
                                                     src={author.avatar}
                                                     alt={author.name}
-                                                    className="w-8 h-8 rounded-full object-cover ring-2 ring-emerald-600/20"
+                                                    className="w-8 h-8 rounded-full object-cover ring-2 ring-lime-600/20"
                                                 />
                                                 <span className="text-xs font-medium text-stone-900 dark:text-stone-200 truncate max-w-[120px]">
                                                     {author.name}

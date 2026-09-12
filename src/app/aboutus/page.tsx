@@ -63,7 +63,7 @@ export default function AboutUsPage() {
 
           <h1 className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl dark:text-stone-50">
             Cultivating knowledge, <br className="hidden sm:inline" />
-            <span className="text-emerald-700 dark:text-emerald-400">one vine at a time.</span>
+            <span className="text-lime-700 dark:text-lime-400">one vine at a time.</span>
           </h1>
 
           <p className="text-base text-stone-600 sm:text-lg dark:text-stone-400">
@@ -112,7 +112,7 @@ export default function AboutUsPage() {
         <div className="grid grid-cols-2 gap-4 rounded-3xl border border-stone-200 bg-white p-6 shadow-lg dark:border-stone-800 dark:bg-stone-900 sm:grid-cols-4 lg:p-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center space-y-1">
-              <p className="text-2xl font-black text-emerald-700 sm:text-3xl lg:text-4xl dark:text-emerald-400">
+              <p className="text-2xl font-black text-lime-700 sm:text-3xl lg:text-4xl dark:text-lime-400">
                 {stat.value}
               </p>
               <p className="text-xs font-medium text-stone-600 dark:text-stone-400">
@@ -181,7 +181,7 @@ export default function AboutUsPage() {
               <h3 className="text-lg font-bold text-stone-900 dark:text-stone-50">
                 {member.name}
               </h3>
-              <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 mt-0.5">
+              <p className="text-xs font-semibold text-lime-700 dark:text-lime-400 mt-0.5">
                 {member.role}
               </p>
               <p className="mt-3 text-xs text-stone-600 leading-relaxed dark:text-stone-400">
@@ -194,12 +194,12 @@ export default function AboutUsPage() {
 
       {/* CALL TO ACTION BANNER */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-stone-200 bg-emerald-700 p-8 text-center shadow-xl dark:border-stone-800 dark:bg-stone-900 lg:p-12">
+        <div className="relative overflow-hidden rounded-3xl border border-stone-200 bg-lime-700 p-8 text-center shadow-xl dark:border-stone-800 dark:bg-stone-900 lg:p-12">
           <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
             <h2 className="text-3xl font-extrabold tracking-tight text-white dark:text-stone-50">
               Want to contribute your garden knowledge?
             </h2>
-            <p className="text-emerald-100 text-sm sm:text-base dark:text-stone-400">
+            <p className="text-lime-100 text-sm sm:text-base dark:text-stone-400">
               We are always looking for guest writers, horticulturists, and plant swappers to join our growing network.
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">

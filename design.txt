@@ -4,8 +4,8 @@ Strictly adhere to the following design system, pure Tailwind CSS classes, and l
 
 1. COLOR PALETTE (Strict adherence required; always provide dark: variants):
    - Primary (Growth/Nature): Tailwind Lime-to-Green spectrum 
-     * Light: text-emerald-700 / bg-lime-600 (Interactive/CTAs)
-     * Dark: text-emerald-400 / bg-lime-400 (Interactive/CTAs)
+     * Light: text-lime-700 / bg-lime-600 (Interactive/CTAs)
+     * Dark: text-lime-400 / bg-lime-400 (Interactive/CTAs)
    - Secondary (Earthy/Blossom Accent): Tailwind Terracotta/Orange spectrum
      * Light: orange-600 (Terracotta accent for highlights, categories, badges)
      * Dark: orange-400

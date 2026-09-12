@@ -200,11 +200,11 @@ export default function CreatePostPage() {
               type="button"
               onClick={handleAutoFill}
               disabled={isAutoFilling || isSubmitting || isGeneratingAI}
-              className="inline-flex items-center px-4 py-2.5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 font-medium text-sm shadow-sm transition-all duration-300 hover:scale-[1.01] hover:border-emerald-700 dark:hover:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-lime-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center px-4 py-2.5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 font-medium text-sm shadow-sm transition-all duration-300 hover:scale-[1.01] hover:border-lime-700 dark:hover:border-lime-400 focus:outline-none focus:ring-2 focus:ring-lime-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isAutoFilling ? (
                 <>
-                  <svg className="animate-spin h-4 w-4 mr-2 text-emerald-700 dark:text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-4 w-4 mr-2 text-lime-700 dark:text-lime-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
                   </svg>
@@ -212,7 +212,7 @@ export default function CreatePostPage() {
                 </>
               ) : (
                 <>
-                  <svg className="h-4 w-4 mr-2 text-emerald-700 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <svg className="h-4 w-4 mr-2 text-lime-700 dark:text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                   Auto Fill Recipe Ideas
@@ -255,7 +255,7 @@ export default function CreatePostPage() {
                     onClick={handleGenerateAIPost}
                     disabled={isTitleEmpty || isGeneratingAI || isSubmitting || isAutoFilling}
                     title={isTitleEmpty ? "Type a title first to enable AI generation" : "Generate content, tags, and image with AI"}
-                    className="inline-flex items-center px-3 py-1 rounded-xl text-xs font-semibold bg-gradient-to-r from-emerald-600 to-lime-600 hover:from-emerald-500 hover:to-lime-500 text-white shadow-sm transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 disabled:opacity-40 disabled:scale-100 disabled:cursor-not-allowed"
+                    className="inline-flex items-center px-3 py-1 rounded-xl text-xs font-semibold bg-gradient-to-r from-lime-600 to-lime-600 hover:from-lime-500 hover:to-lime-500 text-white shadow-sm transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-lime-500 disabled:opacity-40 disabled:scale-100 disabled:cursor-not-allowed"
                   >
                     {isGeneratingAI ? (
                       <>
@@ -384,7 +384,7 @@ export default function CreatePostPage() {
                     tagList.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-xs font-medium bg-stone-100 dark:bg-stone-800 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 rounded-full"
+                        className="text-xs font-medium bg-stone-100 dark:bg-stone-800 text-lime-700 dark:text-lime-400 px-2.5 py-0.5 rounded-full"
                       >
                         #{tag}
                       </span>

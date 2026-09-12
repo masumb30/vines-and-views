@@ -9,7 +9,6 @@ const PostCard = ({ post }: { post: any }) => {
             <Link href={`/explore/${post._id}`}>
                 <article
                     key={post.title}
-                    // onClick={() => setSelectedPost(post)}
                     className="group flex flex-col justify-between bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 cursor-pointer"
                 >
                     <div>
@@ -65,7 +64,7 @@ const PostCard = ({ post }: { post: any }) => {
                             </span>
 
                             {/* Title */}
-                            <h3 className="text-lg font-extrabold text-stone-900 dark:text-stone-50 leading-snug tracking-tight mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors duration-300">
+                            <h3 className="text-lg font-extrabold text-stone-900 dark:text-stone-50 leading-snug tracking-tight mb-3 line-clamp-2 group-hover:text-lime-700 dark:group-hover:text-lime-400 transition-colors duration-300">
                                 {post.title}
                             </h3>
 
@@ -75,17 +74,17 @@ const PostCard = ({ post }: { post: any }) => {
                             </p>
 
                             {/* Author row */}
-                            <div className="flex items-center gap-3 border-t border-stone-100 dark:border-stone-850 pt-4">
-                                <div className="w-8 h-8 rounded-full bg-emerald-700/10 text-emerald-800 dark:bg-emerald-400/10 dark:text-emerald-400 flex items-center justify-center font-extrabold text-xs shadow-inner">
+                            <div className="flex items-center gap-3 border-t border-stone-100/20 dark:border-stone-850 pt-4">
+                                <div className="w-8 h-8 rounded-full bg-lime-700/10 text-lime-800 dark:bg-lime-400/10 dark:text-lime-400 flex items-center justify-center font-extrabold text-xs shadow-inner">
                                     {post.userId.name.split(" ").map((n: any) => n[0]).join("").toUpperCase().slice(0, 2)}
                                 </div>
                                 <div>
                                     <p className="text-xs font-extrabold text-stone-900 dark:text-stone-100 leading-tight">
                                         {post.userId.name}
                                     </p>
-                                    <p className="text-[9px] text-stone-400 dark:text-stone-500 font-semibold uppercase tracking-wider">
+                                    {/* <p className="text-[9px] text-stone-400 dark:text-stone-500 font-semibold uppercase tracking-wider">
                                         Gardener ID: {post.userId._id.replace("usr_", "")}
-                                    </p>
+                                    </p> */}
                                 </div>
                             </div>
 
@@ -93,7 +92,7 @@ const PostCard = ({ post }: { post: any }) => {
                     </div>
 
                     {/* Interactive footer actions */}
-                    <div className="px-6 pb-6 pt-2 border-t border-stone-100 dark:border-stone-850 flex items-center justify-between text-xs font-semibold text-stone-600 dark:text-stone-400">
+                    <div className="px-6 pb-6 pt-2 border-t border-stone-100/20 dark:border-stone-850 flex items-center justify-between text-xs font-semibold text-stone-600 dark:text-stone-400">
 
                         {/* Likes count */}
                         <button
@@ -111,20 +110,20 @@ const PostCard = ({ post }: { post: any }) => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
                             <span className={true ? "text-orange-600 dark:text-orange-400 font-bold" : ""}>
-                                {post.likes}
+                                {post.likes.length || 0}
                             </span>
                         </button>
 
                         {/* Comments count */}
-                        <div className="flex items-center gap-1.5 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors">
+                        <div className="flex items-center gap-1.5 hover:text-lime-700 dark:hover:text-lime-400 transition-colors">
                             <svg className="w-4 h-4 text-stone-400 dark:text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                             </svg>
-                            <span>{post.comments || 0}</span>
+                            <span>{post.comments.length || 0}</span>
                         </div>
 
                         {/* Expand CTA */}
-                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 group-hover:underline flex items-center gap-1">
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-lime-700 dark:text-lime-400 group-hover:underline flex items-center gap-1">
                             Read
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />

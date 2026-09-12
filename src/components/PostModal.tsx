@@ -80,7 +80,7 @@ export default function PostModal({
               <button
                 type="button"
                 onClick={onViewPost}
-                className="px-4 py-2 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg transition-colors shadow-sm"
+                className="px-4 py-2 text-sm font-medium text-white bg-lime-600 hover:bg-lime-500 rounded-lg transition-colors shadow-sm"
               >
                 View Post
               </button>

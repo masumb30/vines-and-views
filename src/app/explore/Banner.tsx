@@ -2,7 +2,7 @@ import React from 'react'
 
 const Banner = () => {
     return (
-        <header className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-800 to-lime-950 text-white rounded-3xl p-8 md:p-12 shadow-lg border border-emerald-800/30 mb-12">
+        <header className="relative overflow-hidden bg-gradient-to-br from-lime-900 via-lime-800 to-lime-950 text-white rounded-3xl p-8 md:p-12 shadow-lg border border-lime-800/30 mb-12">
             {/* Botanical SVG Asset Decorator in background */}
             <div className="absolute right-0 bottom-0 opacity-15 pointer-events-none translate-y-8 translate-x-8 md:translate-y-2 md:translate-x-2 scale-125 transition-transform duration-500">
                 <svg className="w-72 h-72 text-lime-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -17,7 +17,7 @@ const Banner = () => {
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
                     Explore Gardening Insights
                 </h1>
-                <p className="text-emerald-100/90 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-lime-100/90 text-sm md:text-base leading-relaxed font-medium">
                     A botanical sanctuary where like-minded people share their gardening experience and tips, helping each other cultivate beautiful, thriving organic green spaces.
                 </p>
             </div>

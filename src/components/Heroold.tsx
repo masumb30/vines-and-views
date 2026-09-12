@@ -1,5 +1,4 @@
 import React from 'react';
-import {motion} from "motion/react";
 
 export const VinesAndViewsHero: React.FC = () => {
   return (
@@ -12,75 +11,44 @@ export const VinesAndViewsHero: React.FC = () => {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           
           {/* LEFT CONTENT COLUMN */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6 lg:col-span-7"
-          >
+          <div className="space-y-6 lg:col-span-7">
             
             {/* Category Badge */}
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-orange-600 transition-scale duration-300 hover:scale-[1.01] dark:border-orange-900/50 dark:bg-orange-950/40 dark:text-orange-400"
-            >
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-orange-600 transition-all duration-300 hover:scale-[1.01] dark:border-orange-900/50 dark:bg-orange-950/40 dark:text-orange-400">
               <span className="inline-block h-2 w-2 rounded-full bg-orange-500 dark:bg-orange-400 animate-pulse" />
               COMMUNITY-DRIVEN BOTANICAL HUB
-            </motion.div>
+            </div>
 
             {/* Main Headline */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl dark:text-stone-50"
-            >
+            <h1 className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl dark:text-stone-50">
               Where plant passions <br className="hidden sm:inline" />
               <span className="text-lime-700 dark:text-lime-400">root, flourish</span> & find a view.
-            </motion.h1>
+            </h1>
 
             {/* Subtitle / Paragraph */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="max-w-2xl text-base text-stone-600 sm:text-lg dark:text-stone-400"
-            >
+            <p className="max-w-2xl text-base text-stone-600 sm:text-lg dark:text-stone-400">
               Explore expert horticulturist guides, share your urban jungle progress, and trade rare cuttings with a worldwide community of soil lovers.
-            </motion.p>
+            </p>
 
             {/* Interactive Search / Newsletter Input */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <form onSubmit={(e) => e.preventDefault()} className="max-w-xl space-y-3">
-                <div className="relative flex items-center">
-                  <input
-                    type="text"
-                    placeholder="Search 'Monstera propagation', 'Soil mix'..."
-                    className="w-full rounded-2xl border  focus:outline-none py-3.5 pl-4 pr-32 text-sm text-stone-900 shadow-sm transition-all duration-300   dark:border-stone-800 dark:bg-stone-900 dark:text-stone-50 dark:placeholder-stone-500"
-                  />
-                  <button
-                    type="submit"
-                    className="cursor-pointer absolute right-1.5 inline-flex items-center justify-center rounded-xl bg-lime-600 px-4 py-2 text-sm font-semibold text-white shadow-sm  hover:bg-lime-700 "
-                  >
-                    Explore
-                  </button>
-                </div>
-              </form>
-            </motion.div>
+            <form onSubmit={(e) => e.preventDefault()} className="max-w-xl space-y-3">
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  placeholder="Search 'Monstera propagation', 'Soil mix'..."
+                  className="w-full rounded-2xl border border-stone-200 bg-white py-3.5 pl-4 pr-32 text-sm text-stone-900 shadow-sm transition-all duration-300 focus:border-lime-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-50 dark:placeholder-stone-500 dark:focus:ring-offset-stone-950"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-1.5 inline-flex items-center justify-center rounded-xl bg-lime-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-[1.01] hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:bg-lime-400 dark:text-stone-950 dark:hover:bg-lime-300 dark:focus:ring-offset-stone-900"
+                >
+                  Explore
+                </button>
+              </div>
+            </form>
 
             {/* Action Buttons */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
-            >
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#start-reading"
                 className="inline-flex items-center justify-center rounded-2xl bg-lime-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:bg-lime-800 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:bg-lime-500 dark:text-stone-950 dark:hover:bg-lime-400 dark:focus:ring-offset-stone-950"
@@ -93,15 +61,10 @@ export const VinesAndViewsHero: React.FC = () => {
               >
                 Join Marketplace
               </a>
-            </motion.div>
+            </div>
 
             {/* Community Social Proof / Stats */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-wrap items-center gap-6 border-t border-stone-200 pt-6 dark:border-stone-800"
-            >
+            <div className="flex flex-wrap items-center gap-6 border-t border-stone-200 pt-6 dark:border-stone-800">
               <div className="flex -space-x-2">
                 <img className="inline-block h-8 w-8 rounded-full ring-2 ring-stone-50 dark:ring-stone-900" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="User Avatar" />
                 <img className="inline-block h-8 w-8 rounded-full ring-2 ring-stone-50 dark:ring-stone-900" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="User Avatar" />
@@ -110,17 +73,12 @@ export const VinesAndViewsHero: React.FC = () => {
               <div className="text-xs text-stone-600 dark:text-stone-400">
                 <span className="font-bold text-stone-900 dark:text-stone-50">14,800+</span> active gardeners sharing stories & tips today.
               </div>
-            </motion.div>
+            </div>
 
-          </motion.div>
+          </div>
 
           {/* RIGHT VISUAL COLUMN */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="relative lg:col-span-5"
-          >
+          <div className="relative lg:col-span-5">
             {/* Main Hero Featured Blog Card Frame */}
             <div className="relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-3 shadow-xl transition-all duration-300 dark:border-stone-800 dark:bg-stone-900">
               
@@ -137,12 +95,7 @@ export const VinesAndViewsHero: React.FC = () => {
               </div>
 
               {/* Floating Overlay Badge (Gardener Spotlight) */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -bottom-4 -left-4 max-w-xs rounded-2xl border border-stone-200 bg-white/95 p-4 shadow-lg backdrop-blur-md dark:border-stone-800 dark:bg-stone-900/95 sm:bottom-6 sm:-left-6"
-              >
+              <div className="absolute -bottom-4 -left-4 max-w-xs rounded-2xl border border-stone-200 bg-white/95 p-4 shadow-lg backdrop-blur-md dark:border-stone-800 dark:bg-stone-900/95 sm:bottom-6 sm:-left-6">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lime-100 text-lime-700 dark:bg-lime-950 dark:text-lime-400">
                     🌿
@@ -154,7 +107,7 @@ export const VinesAndViewsHero: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Card Meta Content */}
               <div className="p-4 pt-5">
@@ -168,7 +121,7 @@ export const VinesAndViewsHero: React.FC = () => {
               </div>
 
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
