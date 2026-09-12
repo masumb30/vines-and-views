@@ -100,7 +100,7 @@ const Header: React.FC = ({ }) => {
 
                         {/* Left Section: Logo */}
                         <div className="flex-shrink-0">
-                            <a
+                            <Link
                                 href="/"
                                 className="flex items-center gap-2 font-bold text-xl tracking-tight text-stone-900 dark:text-stone-50 transition-all duration-200 hover:scale-[1.02]"
                                 onClick={handleNavigation}
@@ -120,7 +120,7 @@ const Header: React.FC = ({ }) => {
                                 <span>
                                     Vines & <span className="text-emerald-600 dark:text-emerald-500">Views</span>
                                 </span>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Center Section: Desktop Navigation Links */}
@@ -145,7 +145,7 @@ const Header: React.FC = ({ }) => {
                         </div>
 
                         {/* Right Section: Auth / User Controls */}
-                        <div className="hidden lg:flex lg:items-center lg:gap-4">
+                        <div className="hidden lg:flex lg:items-center lg:gap-4 cursor-pointer">
 
                             {
                                 isPending ? <span className="animate-spin inline-block w-4 h-4 border-t-2 border-l-2 border-r-2 border-emerald-500 rounded-full"></span> :
@@ -154,9 +154,9 @@ const Header: React.FC = ({ }) => {
                                         // ----- LOGGED IN STATE: Avatar + Name -----
                                         <div onClick={handleDropDown} className="flex items-center gap-3  relative">
                                             <div className={`absolute top-full left-0 ${dropDown ? 'block ' : 'hidden'} w-full bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg mt-2 z-50`}>
-                                                <a href="/dashboard" className="block w-full px-4 py-2 text-sm text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg w-full text-left cursor-pointer">
+                                                <Link href="/dashboard" className="block w-full px-4 py-2 text-sm text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg w-full text-left cursor-pointer">
                                                     Dashboard
-                                                </a>
+                                                </Link>
                                                 <button onClick={handleLogOut} className="px-4 py-2 text-sm text-red-700 dark:text-red-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg w-full text-left cursor-pointer">
                                                     Log out
                                                 </button>
